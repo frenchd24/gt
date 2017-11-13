@@ -1,0 +1,217 @@
+This document outlines the steps taken to make the galaxy table.
+
+
+1. Retrieve basic data from NED in batches of 10,000. The code was was:
+NEDcompiler9.py
+
+"basic data" includes:
+    'preferredName',\
+    'oldName',\
+    'redshift',\
+    'degreesJ2000RA_Dec',\
+    'J2000RA_Dec',\
+    'galacticLong_Lat',\
+    'rIndependentDistMean_sd_min_max (Mpc)',\
+    'morphology',\
+    'distanceIndicator',\
+    'luminosityClass',\
+    'EBminusV',\
+    'radialVelocity (km/s)',\
+    'vcorr (km/s)',\
+    'angDiameters (arcsec)',\
+    'linDiameters (kpc)',\
+    'distvcorr (Mpc)',\
+    'inclination (deg)',\
+    'photometry',\
+    'alternativeNames'
+
+2. Retrieve diameters and PA info from NED in batches of 10,000. The code was:
+NEDcompilerPA5.py
+
+The retrieved data was:
+'oldName','freqTargeted','diameters','dRatio','pa','completeList'
+
+
+3. Retrieve photometry data from NED in batches of 10,000. The code was:
+nedphotometryretriever2.py
+
+The data retrieved was:
+'galaxyName','B','u','g','r','i','z','J','H','K','all'
+
+4. Go through all the data and remove anything that had velocity or redshift
+equal to 'x'. Used this code:
+GTupdate2_remove_duds.py
+
+This created:
+return_basic_full.csv
+return_pa_full.csv
+return_phot_full.csv
+
+And the rejected ones are stored here:
+rejected_results.csv
+
+
+4. Output ra and dec in the format that IRSA/NASA/IPAC likes. The code was:
+GTupdate2_outputPositions_extinc.py
+
+5. Get extinction info from IRSA/NASA/IPAC online, put it in tables here:
+/usr/data/moosejaw/frenchd/GT_update2/extincTables
+
+The input is of the form: all_ra_dec0-20000.txt
+The output (from online form) is of the form: 0-20000_extinc.txt
+
+6. Add the extinction values to the basic table. Code used was:
+add_extinction_column.py
+
+Made this table: return_basic_full_extinc.csv
+This code accidentally wrote out a photometry column though, so I deleted that
+manually, which resulted in return_basic_full_extinc2.csv
+
+7. Add RC3 catalog stuff to the basic table. Code used was:
+GTupdate2_RC3combine.py
+
+Made this table: return_basic_full_extinc_rc3.csv
+
+8. Now it's time to deal with the photometry. The code used was:
+GTupdate2_photometry.py
+
+Made this table: processedPhot.csv, processedPhot2.csv
+
+9. Now the diameters. The code used was:
+GTupdate2_diameters.py
+
+Made this table: processedDiams.csv, processedDiams2.csv
+
+It has since become apparent that the module used to choose diameters,
+choose_diameter_measurement.py, sucks. So I rewrote it, the final new 
+version being choose_diameter_measurement3.py. This version ONLY does
+piecemeal, and will not return the highest ranking, most complete
+measurement set. Well it DOES do that if each piece is individually
+the highest ranking, but you can't force it to in all cases.
+
+Using that made this table: processedDiams3.csv
+
+10. It later turns out that some of the distances are bad (RID ones). So
+now we go back and redo RID distances. The code used was:
+GTupdate2_RIDcombine.py
+
+The table made was: return_basic_full_extinc_rc3_rid2.csv
+It later turns out that this erased RC3 data, so I fixed that and made:
+return_basic_full_extinc_rc3_rid3.csv
+
+11. Then I reran the diameters code with this new file, using code:
+GTupdate2_diameters_rid2.py
+
+I used this both for the full and rejected tables, so I made:
+processedDiams7.csv, rejected_processedDiams_rid2.csv
+
+12. Redid photometry as well for the same reasons, made the following:
+rejected_processedPhot2.csv, processedPhot3.csv
+
+13. Combine these files with the code:
+GTupdate_compile.py
+
+Makes: FinalGalaxyTable6.csv, rejected_final_combined2.csv
+
+14. Now add groups with code:
+GTupdate2_tully2015combine.py
+
+Makes: FinalGalaxyTable6_groups.csv, rejected_final_combined2_groups.csv
+
+15. Then I copied and pasted the rejected results in to FinalGalaxyTable6_groups.csv, renaming this as: FinalGalaxyTable6_groups_plusRejected.csv
+
+16. Put everything in it's own column, round values, and replace nulls with:
+GTupdate2_finalCSV.py
+
+Makes: FinalGalaxyTable7.csv, FinalGalaxyTable7_altNames.csv
+
+17. So a bunch of NGC galaxies failed to get diameters because NED's XML output format
+thing is broken. So I made NEDcompilerPA7.py, which uses ascii_bar tables to get
+diameter info instead of XML, and reran on the whole table. The output is:
+returnPA21111.csv -> return_pa_full2.csv (just renamed it)
+rejected_PA2.csv
+
+18. Then of course I had to redo all the rest, starting with GTupdate2_diameters_rid2.py,
+which made these files: processedDiams8.csv, rejected_processedDiams_rid3.csv
+
+P.s. I also slightly adjusted threshold values in choose_diameter_measurement3.py. They are now: 
+    majorThresh = 4.0
+    ratioThresh = 2.5
+    paThresh = 3.5
+
+19. Next I had to combine everything again as above. Used: GTupdate2_combine.py
+Made this table: FinalGalaxyTable8.csv
+
+20. Add groups using GTupdate2_tully2015combine.py
+Made this table: FinalGalaxyTable8_groups.csv
+
+21. Make the 'final' csv version, where every thing is separated into individual columns, using
+this code: GTupdate2_finalCSV.py
+Made this table: FinalGalaxyTable9.csv, FinalGalaxyTable9_altNames.csv
+
+22. Check for and flag any possible stars using GTupdate2_filterStars.py
+Made this table: FinalGalaxyTable9_filtered.csv
+
+23. Make an ascii version using this code: GTupdate2_compile_ascii7.py
+Made these tables: FinalGalaxyTable9_filtered.dat, FinalGalaxyTable9_altNames.dat
+
+24. Well, do it all again. distIndicator means nothing if I just use a median value, so I instead remade the basic table using the median_low() routine which take the actual value closest to the median for RID, and then set distIndicator equal to ‘method’ for that median measurement.
+Code used: GTupdate2_RIDcombine3.py
+
+I made: return_basic_full_extinc_rc3_rid4.csv
+
+Then: GTupdate2_diameters_rid2.py
+To make: rejected_processedDiams_rid4.csv, processedDiams9.csv
+P.s. I accidentally clobbered processedDiams8.csv while making this, so 8 and 9 are the same.
+
+Then: combine everything again as above. Used: GTupdate2_combine.py
+Made these tables: FinalGalaxyTable9_med.csv, rejected_final_combined4.csv
+
+Then: Add groups using GTupdate2_tully2015combine.py
+Made these tables: FinalGalaxyTable9_med_groups.csv, rejected_final_combined4_groups.csv
+
+Then: Make the 'final' csv version, where every thing is separated into individual columns, using
+this code: GTupdate2_finalCSV.py
+Made this table: FinalGalaxyTable10.csv, FinalGalaxyTable10_altNames.csv
+
+Then: Check for and flag any possible stars using GTupdate2_filterStars.py. I also updated this to set
+flag=2 for abs(RID_median * hubbleC - vcorr) > 1500 galaxies.
+Made this table: FinalGalaxyTable10_filtered.csv
+
+Finally: Make an ascii version using this code: GTupdate2_compile_ascii7.py
+Made these tables: FinalGalaxyTable10_filtered.dat, FinalGalaxyTable10_altNames.dat
+
+
+25. Well, do it again, again, again…. median_low() had a weird rounding error so it wouldn’t always selection the ‘low’ option, and also bestDist didn’t always match RID_median. I fixed median_low() by not making it convert back to lists, and by rounding everything to 6 digits. Also checked and needed to do the same with GTupdate2_photometry.py. Also found some errors in the sdss part of photometry, so redoing all that now.
+
+I made: return_basic_full_extinc_rc3_rid5.csv, rejected_results_redo_extinc_rc3_rid5.csv
+P.s. I changed the count on ‘rejected_results_redo_extinc_rc3_rid…’ to 5 to match the majority table
+
+Then: GTupdate2_diameters_rid2.py
+To make: rejected_processedDiams_rid10.csv, processedDiams10.csv
+P.s. I changed the count on ‘rejected_processedDiams…’ to 10 to match the majority table
+
+Then: GTupdate2_photometry.py
+To make: rejected_processedPhot4.csv, processedPhot4.csv
+P.s. I changed the count on “rejected_processedPhot…” to 4 to match the majority table
+
+Then: combine everything again as above. Used: GTupdate2_combine.py
+Made these tables: FinalGalaxyTable10_med.csv, rejected_final_combined10.csv
+P.s. I changed the count on ‘rejected_final_combined…’ to 10 to match the majority table
+
+Then: Add groups using GTupdate2_tully2015combine.py
+Made these tables: FinalGalaxyTable10_med_groups.csv, rejected_final_combined10_groups.csv
+
+Then copy and paste the rejected stuff into the main file.
+Made: FinalGalaxyTable10_med_groups_plusRejected.csv
+
+Then: Make the 'final' csv version, where every thing is separated into individual columns, using
+this code: GTupdate2_finalCSV.py
+Made this table: FinalGalaxyTable11.csv, FinalGalaxyTable11_altNames.csv
+
+Then: Check for and flag any possible stars using GTupdate2_filterStars.py. I also updated this to set
+flag=2 for abs(RID_median * hubbleC - vcorr) > 1500 galaxies.
+Made this table: FinalGalaxyTable10_filtered.csv
+
+Finally: Make an ascii version using this code: GTupdate2_compile_ascii7.py
+Made these tables: FinalGalaxyTable10_filtered.dat, FinalGalaxyTable10_altNames.dat

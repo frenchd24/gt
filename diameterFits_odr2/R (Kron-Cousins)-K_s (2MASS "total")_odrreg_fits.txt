@@ -1,0 +1,16 @@
+----Orthogonal Distance Regression results----
+[m,b] = [  1.30277871 -19.51983879]
+[m_err,b_err] = [  0.14146899  17.93290542]
+Covariance = [[  9.90781217e-04  -1.21496780e-01]
+ [ -1.21496780e-01   1.59204953e+01]]
+Residual Variance = 20.1996917654
+Relative Error = 3.10451111415e-14
+Info = 1
+Stop Reason = ['Sum of squares convergence']
+
+
+----Standard Linear Regression results----
+1D fit: y = 0.826*x + 38.9
+r_value = r_value = 0.688
+p_value = p_value = 1.72e-10
+std_err = 0.108923330134

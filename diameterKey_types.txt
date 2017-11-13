@@ -1,0 +1,28 @@
+GTupdate2_countDiameterTypes.py run on 3/17/17 on the file:
+'/usr/data/moosejaw/frenchd/GT_update2/returnPA11111111111111.csv'
+
+Produced:
+
+r (SDSS Petrosian)  :  71895
+r (SDSS Exponential)  :  71852
+r (SDSS Isophotal)  :  71235
+K_s (2MASS isophotal)  :  60075
+K_s (2MASS "total")  :  60075
+ESO-LV "Quick Blue" IIa-O  :  45561
+POSS1 103a-O  :  42336
+r (SDSS deVaucouleurs)  :  40128
+x  :  38043
+r (SDSS de Vaucouleurs)  :  31677
+RC3 D_25, R_25 (blue)  :  16210
+RC3 D_0 (blue)  :  16199
+ESO-Uppsala "Quick Blue" IIa-O  :  5807
+ESO-LV IIIa-F  :  4473
+RC3 A_e (Johnson B)  :  1914
+POSS1 103a-E  :  1080
+K_s (LGA/2MASS isophotal)  :  510
+K_s (LGA/2MASS "total")  :  510
+B (Johnson)  :  81
+R (Kron-Cousins)  :  75
+408 & 1407 MHz  :  5
+1407 MHz  :  2
+408 MHz  :  1
