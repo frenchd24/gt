@@ -63,6 +63,28 @@ v3: total revamp: use savetxt only, read in from:
     
     (11/06/2017)
     
+    ------
+    Read in:
+        FinalGalaxyTable12_filtered.csv and 
+        FinalGalaxyTable12_filtered_altNames.csv
+    
+    Made:
+        FinalGalaxyTable12_filtered.dat
+        FinalGalaxyTable12_altNames.dat
+    
+    (01/03/2018)
+    
+    ------
+    Read in:
+        FinalGalaxyTable13_filtered.csv and 
+        FinalGalaxyTable13_filtered_altNames.csv
+    
+    Made:
+        FinalGalaxyTable13_filtered.dat
+        FinalGalaxyTable13_altNames.dat
+    
+    (02/01/2018)
+    
 '''
 
 import sys
@@ -148,23 +170,29 @@ def main():
 
 #         inFilename = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable7.csv'
 #         inFilename_altNames = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable7_altNames.csv'
-# 
 #         outFilename = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable7.dat'
 #         outFilename_altNames = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable7_altNames.dat'
 
 #         inFilename = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable7_filtered.csv'
 #         inFilename_altNames = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable7_altNames.csv'
-# 
 #         outFilename = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable7_filtered.dat'
 #         outFilename_altNames = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable7_altNames.dat'
 
 #         inFilename = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable9_filtered.csv'
 #         inFilename_altNames = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable9_altNames.csv'
-# 
 #         outFilename = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable9_filtered.dat'
 #         outFilename_altNames = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable9_altNames.dat'
-        pass
-        
+
+#         inFilename = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable12_filtered.csv'
+#         inFilename_altNames = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable12_altNames.csv'
+#         outFilename = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable12_filtered.dat'
+#         outFilename_altNames = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable12_altNames.dat'
+
+        inFilename = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable13_filtered.csv'
+        inFilename_altNames = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable13_altNames.csv'
+        outFilename = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable13_filtered.dat'
+        outFilename_altNames = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable13_altNames.dat'
+                
     elif user == 'David':
 #         inFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable7_filtered.csv'
 #         inFilename_altNames = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable7_altNames.csv'
@@ -184,12 +212,12 @@ def main():
 #         outFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable10_filtered.dat'
 #         outFilename_altNames = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable10_altNames.dat'
 
-        inFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11_filtered.csv'
-        inFilename_altNames = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11_altNames.csv'
-
-        outFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11_filtered.dat'
-        outFilename_altNames = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11_altNames.dat'
-
+#         inFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11_filtered.csv'
+#         inFilename_altNames = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11_altNames.csv'
+# 
+#         outFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11_filtered.dat'
+#         outFilename_altNames = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11_altNames.dat'
+        pass
     else:
         print 'User not recognised: ',user
         print 'Exiting.'

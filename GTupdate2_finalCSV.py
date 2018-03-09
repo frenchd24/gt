@@ -56,6 +56,13 @@ Remake because of the median_low() error (11/03/17)
 Remake because of little photometry updates (11/06/17)
 -> FinalGalaxyTable11.csv, FinalGalaxyTable11_altNames.csv (duplicate the previous ones)
 
+Remake because of little diameter updates (01/03/18)
+-> FinalGalaxyTable12.csv, FinalGalaxyTable12_altNames.csv
+
+Reorder the galaxy names (02/01/18)
+-> Make FinalGalaxyTable13.csv, FinalGalaxyTable13_altNames.csv
+
+
 '''
 
 import sys
@@ -116,9 +123,14 @@ def pickPreferredName3(altNames, oldName):
     # oldname is the original name, and possibly not part of altnames
     # altnames is the list of alternative names (probably returned from NED)
 
-    order = ['NGC','IC','MRK','UGC','PHL','3C','SBS','MCG','ISO','TON','PGC',\
-    'PG','PB','FGC','HS','HE','KUG','IRAS','RX','CGCG','FBQS','LBQS','SDSS','VCC',\
-    '2MASS','2DF','6DF','HIPASS','2MASX']
+#     order = ['NGC','IC','MRK','UGC','PHL','3C','SBS','MCG','ISO','TON','PGC',\
+#     'PG','PB','FGC','HS','HE','KUG','IRAS','RX','CGCG','FBQS','LBQS','SDSS','VCC',\
+#     '2MASS','2DF','6DF','HIPASS','2MASX']
+
+    order = ['NGC','IC','MRK','UGC','UGCA','PHL','3C','SBS','MCG','ESO','TON','TONS',\
+    'PGC','PG','PB','FGC','HS','HE','KUG','IRAS','RX','CGCG','KAZ','FCC','FAIRALL',\
+    'HOLM','IZw','IIZw','IIIZw','IVZw','VZw','VIZw','VIIZw','VIIIZw','IRAS','IRASF',\
+    'KISS','KISSR','FBQS','LBQS','PKS','SDSS','VCC','2MASS','2DF','6DF','HIPASS','2MASX']
     
     # add oldName to the list of alternate names if it is not already there
     if len(altNames) >=1:
@@ -135,7 +147,7 @@ def pickPreferredName3(altNames, oldName):
     for i in order:
         for n in altNames:
             # n is input string, i is what i'm looking for
-            if bfind(n,i) and not found:
+            if bfind(n,i) and not found and not bfind(n,':') and not bfind(n,'['):
                 finalName = n
                 found = True
                 break
@@ -224,12 +236,20 @@ def main():
 #         inFilename = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable8_groups_plusRejected.csv'
 #         outFilename = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable9.csv'
 #         outFilename_altNames = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable9_altNames.csv'
-        pass
 
+#         inFilename = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable11_med_groups_plusRejected.csv'
+#         outFilename = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable12.csv'
+#         outFilename_altNames = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable12_altNames.csv'
+
+        inFilename = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable11_med_groups_plusRejected.csv'
+        outFilename = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable13.csv'
+        outFilename_altNames = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable13_altNames.csv'
+        
     elif user =='David':
-        inFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable10_med_groups_plusRejected.csv'
-        outFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11.csv'
-        outFilename_altNames = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11_altNames.csv'
+#         inFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable10_med_groups_plusRejected.csv'
+#         outFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11.csv'
+#         outFilename_altNames = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11_altNames.csv'
+        pass
 
     else:
         print 'User not recognised: ',user

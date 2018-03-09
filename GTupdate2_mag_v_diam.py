@@ -3,7 +3,12 @@
 '''
 By David M. French (frenchd@astro.wisc.edu)
 
-$Id: GTupdate2_allSkyPlot.py, v1 10/31/17
+$Id: GTupdate2_mag_v_diam.py, v1 01/08/18
+
+Plot magnitude vs diameter for the whole galaxy table
+
+
+Based on: GTupdate2_allSkyPlot.py, v1 10/31/17
 
 Makes all sky plots of a bunch of stuff 
 
@@ -41,6 +46,22 @@ from astropy.io import fits
 # import vo.tree
 
 ###########################################################################
+
+def calculate_absoluteMag(m,dm,d,dd,e):
+    # m is apparent magnitude, d is distance in Mpc, e is extinction E(B-V)
+    #
+    # dm is the error in apparent magnitude, dd is the error in distance
+    
+    M = float(m) - 5*math.log10((float(d)*10**6)/10) - 3.1*float(e)
+    
+    # now do the error
+    # error is dominated by dd, so don't even bother with an extinction error
+
+    dM = math.sqrt(float(dm)**2 + ((5*float(dd))**2 / (float(d) * math.log10(10))**2))
+    
+    return M, dM
+
+
 
 def median_low(l):
     # returns the closest element in a list to the median, rounding down
@@ -181,6 +202,8 @@ def main():
     ras = []
     decs = []
 
+    BmagL = []
+    MajDiamL = []
         
     # do the work
     count = 0
@@ -192,18 +215,27 @@ def main():
         vcorr = eval(l['vcorr'])
         RID_mean = eval(l['RID_mean'])
         RID_median = eval(l['RID_median'])
+        bestDist = l['bestDist']
+        ebminusv = l['E(B-V)']
         Vhel = eval(l['Vhel'])
         flag = l['flag']
+        Bmag = l['Bmag']
+        MajDiam = l['MajDiam']
 
         ra = eval(l['RAdeg'])
         dec = eval(l['DEdeg'])
         
-#         if float(ra) <10. and float(ra) > -10:
-        vcorrs.append(vcorr)
-        vhels.append(Vhel)
-        ras.append(ra)
-        decs.append(dec)
-                
+        if str(Bmag) != str(nullFloat) and str(MajDiam) != str(nullFloat):
+            
+            if str(bestDist) != str(nullFloat):
+                Bmag_abs = calculate_absoluteMag(float(Bmag),0.01,bestDist,1.,ebminusv)[0]
+            
+                vcorrs.append(vcorr)
+                vhels.append(Vhel)
+                ras.append(ra)
+                decs.append(dec)
+                BmagL.append(float(Bmag_abs))
+                MajDiamL.append(float(MajDiam))
 
         # update the counter
         percentComplete = round((float(count)/130759)*100,2)
@@ -216,14 +248,13 @@ def main():
     
     ras = numpy.array(ras)
     decs = numpy.array(decs)
-#     colors = numpy.array(vcorrs)
-    colors = numpy.array(vhels)
-    
-    vmaxVal = max(colors)
-    vminVal = min(colors)
-
-    norm = matplotlib.colors.Normalize(vmin = vminVal, vmax = vmaxVal)
-    m = matplotlib.cm.ScalarMappable(norm=norm, cmap=colmap)
+#     colors = numpy.array(vhels)
+#     
+#     vmaxVal = max(colors)
+#     vminVal = min(colors)
+# 
+#     norm = matplotlib.colors.Normalize(vmin = vminVal, vmax = vmaxVal)
+#     m = matplotlib.cm.ScalarMappable(norm=norm, cmap=colmap)
 
 
     # Import all required packages.
@@ -237,39 +268,49 @@ def main():
 
     # Generate random data, for RA between 0 and 360 degrees, for DEC between
     # -90 and +90 degrees.
-    ra_random = ras
-    dec_random = decs
+#     ra_random = ras
+#     dec_random = decs
 
     # Transform the data into a SkyCoord object.
-    c = SkyCoord(ra=ra_random*u.degree, dec=dec_random*u.degree, frame='icrs')
+#     c = SkyCoord(ra=ra_random*u.degree, dec=dec_random*u.degree, frame='icrs')
 
 
     # Matplotlib needs the coordinates in radians, so we have to convert them.
     # Furtermore matplotlib needs the RA coordinate in the range between -pi
     # and pi, not 0 and 2pi.
-    ra_rad = c.ra.radian
-    dec_rad = c.dec.radian
-    ra_rad[ra_rad > np.pi] -= 2. * np.pi
+#     ra_rad = c.ra.radian
+#     dec_rad = c.dec.radian
+#     ra_rad[ra_rad > np.pi] -= 2. * np.pi
 
     # Now plot the data in Aitoff projection with a grid.
     fig = plt.figure(figsize=(12,6))
-    ax = lab.subplot(111,projection="aitoff")
-    # lab.subplot(111)
+#     ax = lab.subplot(111,projection="aitoff")
+    ax = lab.subplot(111)
 
-    plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
-    vmax=vmaxVal,lw=0,cmap=colmap,s=4,alpha=0.5)
+    # lab.subplot(111)
     
-    cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-    cbar.set_label(r'$\rm Vhel ~[km ~s^{-1}]$')
-    
-    xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-    ax.set_xticklabels(xlab, weight=510)
-    ax.grid(color='k', linestyle='solid', linewidth=0.5)
+    plot1 = plt.scatter(MajDiamL,BmagL,marker='o',lw=0,s=4,alpha=0.5)
+    xlabel(r'$\rm MajDiam ~ [kpc]$')
+    ylabel(r'$\rm M_B$')
+    ylim(-6,-26)
+    ax.set_xscale('log')
+    xlim(1,90)
+
+
+#     plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+#     vmax=vmaxVal,lw=0,cmap=colmap,s=4,alpha=0.5)
+#     
+#     cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+#     cbar.set_label(r'$\rm Vhel ~[km ~s^{-1}]$')
+#     
+#     xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
+#     ax.set_xticklabels(xlab, weight=510)
+#     ax.grid(color='k', linestyle='solid', linewidth=0.5)
     tight_layout()
     
 #     plt.show()
     saveDirectory = '/Users/frenchd/Research/GT_update2/'
-    plt.savefig('{0}allSkyVhel4.pdf'.format(saveDirectory),format='pdf')
+    plt.savefig('{0}mag_v_diam.pdf'.format(saveDirectory),format='pdf')
 
 
 ##########################################################################################

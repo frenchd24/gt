@@ -122,7 +122,8 @@ def choose_diameter_measurement(options, piecemeal=True,verbose=False):
     try:
         options = eval(options)
     except Exception, e:
-        sys.stdout.write('\n eval(options) failed on {0}, continuing...\n'.format(options))
+#         sys.stdout.write('\n eval(options) failed on {0}, continuing...\n'.format(options))
+        sys.stdout.write('\n eval(options) failed: {0}'.format(e))
 
     corrected_options = options
     secondary = options
@@ -137,7 +138,7 @@ def choose_diameter_measurement(options, piecemeal=True,verbose=False):
     ratio_all = []
     major_all = []
     d_all = {}
-    majorThresh = 5.5
+    majorThresh = 14.0
     ratioThresh = 2.0
     paThresh = 3.5
     
@@ -209,6 +210,12 @@ def choose_diameter_measurement(options, piecemeal=True,verbose=False):
                                   
                     # check against all for outliers - major
                     isOutlier = is_val_outlier(largestMajor, major_all, thresh=majorThresh)
+                    
+#                     print 'isOutlier: ',isOutlier
+#                     print 'is_outlier: ',is_outlier(major_all, thresh=majorThresh)
+#                     print 'major_all: ',major_all
+#                     print
+                    
                     while isOutlier and len(majorsNum)>0:
                         if len(majorsNum)>0:
                             largestMajor = majorsNum.pop(0)

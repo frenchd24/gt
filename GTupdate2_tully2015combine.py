@@ -19,6 +19,9 @@ ran on FinalGalaxyTable9_med.csv and rejected_final_combined4.csv to make:
 ran on FinalGalaxyTable10_med.csv and rejected_final_combined10.csv to make:
     FinalGalaxyTable10_med_groups.csv, rejected_final_combined10_groups.csv (11/03/17)
 
+ran on FinalGalaxyTable11_med.csv and rejected_final_combined11.csv to make:
+    FinalGalaxyTable11_med_groups.csv, rejected_final_combined11_groups.csv (01/03/18)
+
 '''
 
 import sys
@@ -99,7 +102,15 @@ def main():
 #         basicFilename = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable8.csv'
 #         groupFilename = '/usr/data/moosejaw/frenchd/GT_update2/tully2015_groups_table5_2.tsv'
 #         outputFilename = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable8_groups.csv'
-        pass
+
+#         basicFilename = '/Users/frenchd/Research/GT_update2_files/rejected_final_combined11.csv'
+#         groupFilename = '/Users/frenchd/Research/GT_update2_files/tully2015_groups_table5_2.tsv'
+#         outputFilename = '/Users/frenchd/Research/GT_update2_files/rejected_final_combined11_groups.csv'
+        
+        basicFilename = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable11_med.csv'
+        groupFilename = '/Users/frenchd/Research/GT_update2_files/tully2015_groups_table5_2.tsv'
+        outputFilename = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable11_med_groups.csv'
+        
 
     elif user =='David':
 #         basicFilename = '/Users/David/Research_Documents/GT_update2/rejected_final_combined4.csv'
@@ -110,13 +121,14 @@ def main():
 #         groupFilename = '/Users/David/Research_Documents/GT_update2/tully2015_groups_table5_2.tsv'
 #         outputFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable9_med_groups.csv'
 
-        basicFilename = '/Users/David/Research_Documents/GT_update2/rejected_final_combined10.csv'
-        groupFilename = '/Users/David/Research_Documents/GT_update2/tully2015_groups_table5_2.tsv'
-        outputFilename = '/Users/David/Research_Documents/GT_update2/rejected_final_combined10_groups.csv'
+#         basicFilename = '/Users/David/Research_Documents/GT_update2/rejected_final_combined10.csv'
+#         groupFilename = '/Users/David/Research_Documents/GT_update2/tully2015_groups_table5_2.tsv'
+#         outputFilename = '/Users/David/Research_Documents/GT_update2/rejected_final_combined10_groups.csv'
 
 #         basicFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable10_med.csv'
 #         groupFilename = '/Users/David/Research_Documents/GT_update2/tully2015_groups_table5_2.tsv'
 #         outputFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable10_med_groups.csv'
+        pass
         
     else:
         print 'User not recognised: ',user

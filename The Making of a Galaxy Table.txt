@@ -215,3 +215,47 @@ Made this table: FinalGalaxyTable10_filtered.csv
 
 Finally: Make an ascii version using this code: GTupdate2_compile_ascii7.py
 Made these tables: FinalGalaxyTable10_filtered.dat, FinalGalaxyTable10_altNames.dat
+
+
+
+26. Well, do it again, again, again…. choose_diameter_measurement3.py was rejecting some 2MASS_total diameters because of the majorThresh setting. Put it at 14 to hopefully avoid everything.
+
+Still using: return_basic_full_extinc_rc3_rid5.csv, rejected_results_redo_extinc_rc3_rid5.csv
+
+Then: GTupdate2_diameters_rid2.py
+To make: rejected_processedDiams_rid11.csv, processedDiams11.csv
+
+Skip: GTupdate2_photometry.py
+Reusing: rejected_processedPhot4.csv, processedPhot4.csv
+
+Then: combine everything again as above. Used: GTupdate2_compile.py  - Note I incorrectly called this “GTupdate2_combine.py” previously.
+Made these tables: FinalGalaxyTable11_med.csv, rejected_final_combined11.csv
+
+Then: Add groups using GTupdate2_tully2015combine.py
+Made these tables: FinalGalaxyTable11_med_groups.csv, rejected_final_combined11_groups.csv
+
+Then copy and paste the rejected stuff into the main file.
+Made: FinalGalaxyTable11_med_groups_plusRejected.csv
+
+Then: Make the 'final' csv version, where every thing is separated into individual columns, using
+this code: GTupdate2_finalCSV.py
+Made this table: FinalGalaxyTable12.csv, FinalGalaxyTable12_altNames.csv
+
+Then: Check for and flag any possible stars using GTupdate2_filterStars.py. I also updated to include all the extra non-galaxy MTypes that Bart found and sent in an email.
+Made this table: FinalGalaxyTable12_filtered.csv
+
+Finally: Make an ascii version using this code: GTupdate2_compile_ascii7.py
+Made these tables: FinalGalaxyTable12_filtered.dat, FinalGalaxyTable12_altNames.dat
+
+
+27. (02/01/18) Rerun the final three steps because we reordered the naming convention:
+
+Then: Make the 'final' csv version, where every thing is separated into individual columns, using
+this code: GTupdate2_finalCSV.py
+Made this table: FinalGalaxyTable13.csv, FinalGalaxyTable13_altNames.csv
+
+Then: Check for and flag any possible stars using GTupdate2_filterStars.py.
+Made this table: FinalGalaxyTable13_filtered.csv
+
+Finally: Make an ascii version using this code: GTupdate2_compile_ascii7.py
+Made these tables: FinalGalaxyTable13_filtered.dat, FinalGalaxyTable13_altNames.dat

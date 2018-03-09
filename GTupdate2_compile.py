@@ -3,7 +3,7 @@
 '''
 By David M. French (frenchd@astro.wisc.edu)
 
-$Id: GTupdate2_compile.py, v2.2 11/03/17
+$Id: GTupdate2_compile.py, v2.3 01/03/17
 
 Combine the following files:
 return_basic_full_extinc.csv
@@ -47,6 +47,24 @@ Makes: rejected_final_combined10.csv
 Note - I did this twice, as I updated the photometry to v4 in the meantime.
 
 (11/03/17)
+
+
+v2.3: After fixing choose_diameter_measurement.py, combine these:
+return_basic_full_extinc_rc3_rid5.csv
+processedPhot4.csv
+processedDiams11.csv
+
+Makes: FinalGalaxyTable11_med.csv
+
+and also:
+rejected_results_redo_extinc_rc3_rid5.csv
+rejected_processedDiams_rid11.csv
+rejected_processedPhot2.csv
+
+Makes: rejected_final_combined11.csv
+
+(01/03/17)
+
 
 '''
 
@@ -146,7 +164,18 @@ def main():
 #         paFilename = '/usr/data/moosejaw/frenchd/GT_update2/processedDiams8.csv'
 #         photFilename = '/usr/data/moosejaw/frenchd/GT_update2/processedPhot3.csv'
 #         outFilename = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable8.csv'
-        pass
+
+#         basicFilename = '/Users/frenchd/Research/GT_update2_files/rejected_results_redo_extinc_rc3_rid5.csv'
+#         paFilename = '/Users/frenchd/Research/GT_update2_files/rejected_processedDiams_rid11.csv'
+#         photFilename = '/Users/frenchd/Research/GT_update2_files/rejected_processedPhot4.csv'
+#         outFilename = '/Users/frenchd/Research/GT_update2_files/rejected_final_combined11.csv'
+
+        basicFilename = '/Users/frenchd/Research/GT_update2_files/return_basic_full_extinc_rc3_rid5.csv'
+        paFilename = '/Users/frenchd/Research/GT_update2_files/processedDiams11.csv'
+        photFilename = '/Users/frenchd/Research/GT_update2_files/processedPhot4.csv'
+        outFilename = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable11_med.csv'
+
+
         
     elif user =='David':
 #         basicFilename = '/Users/David/Research_Documents/GT_update2/rejected_results_redo_extinc_rc3_rid3.csv'
@@ -160,15 +189,17 @@ def main():
 #         outFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable9_med.csv'
 
 
-        basicFilename = '/Users/David/Research_Documents/GT_update2/rejected_results_redo_extinc_rc3_rid5.csv'
-        paFilename = '/Users/David/Research_Documents/GT_update2/rejected_processedDiams_rid10.csv'
-        photFilename = '/Users/David/Research_Documents/GT_update2/rejected_processedPhot4.csv'
-        outFilename = '/Users/David/Research_Documents/GT_update2/rejected_final_combined10.csv'
+#         basicFilename = '/Users/David/Research_Documents/GT_update2/rejected_results_redo_extinc_rc3_rid5.csv'
+#         paFilename = '/Users/David/Research_Documents/GT_update2/rejected_processedDiams_rid10.csv'
+#         photFilename = '/Users/David/Research_Documents/GT_update2/rejected_processedPhot4.csv'
+#         outFilename = '/Users/David/Research_Documents/GT_update2/rejected_final_combined10.csv'
 
 #         basicFilename = '/Users/David/Research_Documents/GT_update2/return_basic_full_extinc_rc3_rid5.csv'
 #         paFilename = '/Users/David/Research_Documents/GT_update2/processedDiams10.csv'
 #         photFilename = '/Users/David/Research_Documents/GT_update2/processedPhot4.csv'
 #         outFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable10_med.csv'
+
+        pass
 
     else:
         print 'User not recognised: ',user

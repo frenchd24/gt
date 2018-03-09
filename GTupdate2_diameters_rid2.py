@@ -3,7 +3,7 @@
 '''
 By David M. French (frenchd@astro.wisc.edu)
 
-$Id: GTupdate2_diameters_rid2.py, v 2.3 11/02/17
+$Id: GTupdate2_diameters_rid2.py, v 2.4 01/03/17
 
 Calculate diameters by normalizing to 2MASS K_s "Total" values:
 Uses:
@@ -43,6 +43,10 @@ v2.3: reran for use with return_basic_full_extinc_rc3_rid5.csv. Fixed a typo in 
     bestDistance (11/02/17)
     made: rejected_processedDiams_rid10.csv, processedDiams10.csv
     
+v2.4: reran with drastically relaxed majorThresh (= 14.0) because some 2MASS_total diams
+    were getting filtered out erroneously (01/03/17)
+    made: rejected_processedDiams_rid11.csv, processedDiams11.csv
+    
 '''
 
 import sys
@@ -55,7 +59,7 @@ import numpy
 import getpass
 from utilities import *
 import math
-from choose_diameter_measurement3 import choose_diameter_measurement
+from choose_diameter_measurement4 import choose_diameter_measurement
 
 # from astropy.io.votable import parse,tree
 
@@ -244,9 +248,19 @@ def main():
 #         outFilename = '/usr/data/moosejaw/frenchd/GT_update2/processedDiams8.csv'
 
         # the initially rejected set, again
-        basicFilename = '/usr/data/moosejaw/frenchd/GT_update2/rejected_results_redo_extinc_rc3_rid2.csv'
-        paFilename = '/usr/data/moosejaw/frenchd/GT_update2/rejected_PA2.csv'
-        outFilename = '/usr/data/moosejaw/frenchd/GT_update2/rejected_processedDiams_rid3.csv'
+#         basicFilename = '/usr/data/moosejaw/frenchd/GT_update2/rejected_results_redo_extinc_rc3_rid2.csv'
+#         paFilename = '/usr/data/moosejaw/frenchd/GT_update2/rejected_PA2.csv'
+#         outFilename = '/usr/data/moosejaw/frenchd/GT_update2/rejected_processedDiams_rid3.csv'
+
+        # the full table, again
+#         basicFilename = '/Users/frenchd/Research/GT_update2_files/return_basic_full_extinc_rc3_rid5.csv'
+#         paFilename = '/Users/frenchd/Research/GT_update2_files/return_pa_full2.csv'
+#         outFilename = '/Users/frenchd/Research/GT_update2_files/processedDiams11.csv'
+
+        # the initially rejected set, again
+        basicFilename = '/Users/frenchd/Research/GT_update2_files/rejected_results_redo_extinc_rc3_rid5.csv'
+        paFilename = '/Users/frenchd/Research/GT_update2_files/rejected_PA2.csv'
+        outFilename = '/Users/frenchd/Research/GT_update2_files/rejected_processedDiams_rid11.csv'
 
 
     elif user == 'David':
@@ -262,10 +276,12 @@ def main():
 #         basicFilename = '/Users/David/Research_Documents/GT_update2/return_basic_full_extinc_rc3_rid5.csv'
 #         paFilename = '/Users/David/Research_Documents/GT_update2/return_pa_full2.csv'
 #         outFilename = '/Users/David/Research_Documents/GT_update2/processedDiams10.csv'
-
-        basicFilename = '/Users/David/Research_Documents/GT_update2/rejected_results_redo_extinc_rc3_rid5.csv'
-        paFilename = '/Users/David/Research_Documents/GT_update2/rejected_PA2.csv'
-        outFilename = '/Users/David/Research_Documents/GT_update2/rejected_processedDiams_rid10.csv'
+        
+        pass
+        
+#         basicFilename = '/Users/David/Research_Documents/GT_update2/rejected_results_redo_extinc_rc3_rid5.csv'
+#         paFilename = '/Users/David/Research_Documents/GT_update2/rejected_PA2.csv'
+#         outFilename = '/Users/David/Research_Documents/GT_update2/rejected_processedDiams_rid10.csv'
 
     else:
         print 'User not recognised: ',user

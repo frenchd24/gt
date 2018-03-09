@@ -3,7 +3,7 @@
 '''
 By David M. French (frenchd@astro.wisc.edu)
 
-$Id: GTupdate2_filterStars.py, v1.1 10/19/17
+$Id: GTupdate2_filterStars.py, v1.2 01/03/18
 
 v1: Include a new column called 'flag'. flag = 0 for normal galaxies, flag = 1 for 
 suspected stars (09/13/17)
@@ -16,6 +16,11 @@ v2: also set flag = 2 for objects with:
     
 Remade due to distance, diameter, and photometry adjustments (11/06/17)
 Makes: FinalGalaxyTable11_filtered
+
+Remade due to diameter adjustments. Added more types to filter out (01/03/18)
+Makes: FinalGalaxyTable12_filtered
+
+Reran on FinalGalaxyTable13.csv because of a naming order change (02/01/18)
 
 '''
 
@@ -57,8 +62,17 @@ def main():
 #         inFilename_altNames = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable9_altNames.csv'
 #         outFilename = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable9_filtered.csv'
 #         outFilename_altNames = '/usr/data/moosejaw/frenchd/GT_update2/FinalGalaxyTable9_filtered_altNames.csv'
-        pass
 
+#         inFilename = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable12.csv'
+#         inFilename_altNames = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable12_altNames.csv'
+#         outFilename = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable12_filtered.csv'
+#         outFilename_altNames = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable12_filtered_altNames.csv'
+
+        inFilename = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable13.csv'
+        inFilename_altNames = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable13_altNames.csv'
+        outFilename = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable13_filtered.csv'
+        outFilename_altNames = '/Users/frenchd/Research/GT_update2_files/FinalGalaxyTable13_filtered_altNames.csv'
+        
     elif user =='David':
 #         inFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable7.csv'
 #         inFilename_altNames = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable7_altNames.csv'
@@ -75,10 +89,11 @@ def main():
 #         outFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable10_filtered.csv'
 #         outFilename_altNames = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable10_filtered_altNames.csv'
 
-        inFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11.csv'
-        inFilename_altNames = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11_altNames.csv'
-        outFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11_filtered.csv'
-        outFilename_altNames = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11_filtered_altNames.csv'
+#         inFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11.csv'
+#         inFilename_altNames = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11_altNames.csv'
+#         outFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11_filtered.csv'
+#         outFilename_altNames = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable11_filtered_altNames.csv'
+        pass
         
     else:
         print 'User not recognised: ',user
@@ -307,7 +322,110 @@ def main():
     'PN:',\
     'Cand._glob._cluster',\
     'Candidate_PN',\
-    'F']
+    'F',\
+    '0.9',\
+    '0.92',\
+    '14',\
+    '14.247',\
+    '14.632',\
+    '14.728',\
+    '14.818',\
+    '14.998',\
+    '15.159',\
+    '15.171',\
+    '15.242',\
+    '15.341',\
+    '15.458',\
+    '15.79',\
+    '15.819',\
+    '16',\
+    '16.281',\
+    '16.309',\
+    '16.348',\
+    '16.394',\
+    '16.556',\
+    '16.736',\
+    '16.764',\
+    '16.783',\
+    '16.981',\
+    '17.012',\
+    '17.039',\
+    '17.441',\
+    '17.597',\
+    '2E',\
+    '2MASS_Extended_Ver.2',\
+    '2_S0_galaxies',\
+    '2_S0_pec_galaxies',\
+    '2_SB0?_pec_galaxies',\
+    '2_Spec?',\
+    '2_compacts',\
+    '2_or_3?_spirals',\
+    '2_spirals',\
+    '2_symm.sp.arms',\
+    '3_S0_galaxies',\
+    ':',\
+    'A',\
+    'A-star',\
+    'A0',\
+    'A3_HII',\
+    'AGN',\
+    'AGN+SF',\
+    'AGN1',\
+    'AGN2',\
+    'AGN:',\
+    'AGN?',\
+    'ALG',\
+    'Amorphous',\
+    'B',\
+    'B...',\
+    'D',\
+    'DA',\
+    'DA+M',\
+    'DA+M:',\
+    'DA+M:;_Cand._QSO',\
+    'DA-star',\
+    'DA',\
+    'DA+M',\
+    'DA+M:',\
+    'DA+M:;_Cand._QSO',\
+    'DA-star',\
+    'DA:',\
+    'DANS',\
+    'DANS?',\
+    'DANS?_Sbrst',\
+    'DANS_WR?',\
+    'DA_auto',\
+    'DBA',\
+    'DC:',\
+    'DGTO',\
+    'DISRPTD',\
+    'DISTRBD',\
+    'DQ:',\
+    'DQ;_Cand._QSO',\
+    'DSa',\
+    'K1',\
+    'K4-K5;Candidate_WD',\
+    'K_Star',\
+    'M',\
+    'M-star',\
+    'M0',\
+    'M0V',\
+    'M1',\
+    'M3-M4',\
+    'M_Star',\
+    'M_star',\
+    'Planetary,_or_galaxy',\
+    'Planetary?',\
+    'Planetary_nebula',\
+    'Possible_*Cl',\
+    'Possible_star',\
+    'bright_near*',\
+    'star:',\
+    'star?',\
+    'star??',\
+    'stellar',\
+    'stellar-like',\
+    'stellar:']
     
     
 ##########################################################################################
@@ -322,7 +440,7 @@ def main():
         vcorr = float(l['vcorr'])
         RID_median = float(l['RID_median'])
         RID_mean = float(l['RID_mean'])
-        MType = l['MType']
+        MType = l['MType'].strip()
         MajDiam = l['MajDiam']
         
         Name_alt = lalt['Name']
