@@ -721,6 +721,17 @@ def returnGalaxyName(ra,dec,radius):
     
 ###########################################################################
 
+def is_file(filename):
+    # decides if opts.filename is a file or the name of a galaxy
+    
+    try:
+        openFile = open(filename,'rU')
+    except Exception, e:
+        openFile = False
+        
+    return openFile
+
+    
     
 def main(opts):
     # assuming 'theFile' contains one name per line, read the file
@@ -732,32 +743,32 @@ def main(opts):
     
     start = time.time()
 
-    theFile = open(opts.filename,'rU')
-#     fileLines = csv.DictReader(theFile,delimiter='|')
-    fileLines = csv.DictReader(theFile)
-
-    
+    # open the file if it's a file, otherwise opts.filename is the name of a galaxy
     nameList = []
     coordList = []
-    
-#     for i in fileLines:
-#         name = i['name']
-#         ra = i['ra']
-#         dec = i['dec']
-
-    for i in fileLines:
-        name = i['Object Name']
-        ra = i['RA(deg)']
-        dec = i['DEC(deg)']
-
+    if not is_file(opts.filename):
+        name = opts.filename
         nameList.append(name)
-        coordList.append([ra,dec])
+        coordList.append(('x','x'))
         
-    theFile.close()
+    else:
+    #     fileLines = csv.DictReader(theFile,delimiter='|')
+        fileLines = csv.DictReader(theFile)
+        nameList = []
+        coordList = []
+
+        for i in fileLines:
+            name = i['Object Name']
+            ra = i['RA(deg)']
+            dec = i['DEC(deg)']
+
+            nameList.append(name)
+            coordList.append([ra,dec])
+        
+        theFile.close()
     
     # format the names in the list and return a new list
     newNameList = parseGalaxyNames(nameList)
-
     
     fieldnames = ('preferredName',\
     'oldName',\

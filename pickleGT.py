@@ -50,7 +50,7 @@ def main():
     
     if getpass.getuser() == 'frenchd':
         filename = '/Users/frenchd/Research/gt/FinalGalaxyTable13_filtered.csv'
-        pickleFilename = '/Users/frenchd/Research/GT_update2/pickleGT.p'
+        pickleFilename = '/Users/frenchd/Research/GT_update2/pickleGT_filteredAll.p'
 
     else:
         print 'Could not determine username. Exiting.'
@@ -61,6 +61,9 @@ def main():
     pickleFile = open(pickleFilename,'wt')
     reader = csv.DictReader(theFile)
 
+    nullFloat = -99.99
+    nullStr = 'x'
+    nullInt = -99
     
     # overall structure: gtDict is a dictionary containing a bunch of shit from the full
     # galaxy table
@@ -81,14 +84,17 @@ def main():
     RAdegL = []
     DEdegL = []
     NameL = []
+    LstarL = []
+    bestDistL = []
+    vcorrL = []
     
     for l in reader:
         majorAxis = l['MajDiam']
         inc = l['inc']
         adjustedInc = l['adjustedInc']
         pa = l['PA']
-        Bmag = l['Bmag']
-        Bmag_sdss = l['Bmag_sdss']
+        Bmag = float(l['Bmag'])
+        Bmag_sdss = float(l['Bmag_sdss'])
         RID_median = l['RID_median']
         RID_mean = l['RID_mean']
         RID_std = l['RID_std']
@@ -96,27 +102,62 @@ def main():
         RAdeg = l['RAdeg']
         DEdeg = l['DEdeg']
         Name = l['Name']
+        Lstar_med = float(l['Lstar_med'])
+        Lstar_sdss = float(l['Lstar_sdss'])
+        bestDist = l['bestDist']
+        vcorr = l['vcorr']
+        flag = int(l['flag'])
+        
+#         if flag !=1:
+        if flag ==0:
 
-        majorAxisL.append(majorAxis)
-        incL.append(inc)
-        adjustedIncL.append(adjustedInc)
-        paL.append(pa)
-        BmagL.append(Bmag)
-        Bmag_sdssL.append(Bmag_sdss)
-        RID_medianL.append(RID_median)
-        RID_meanL.append(RID_mean)
-        RID_stdL.append(RID_std)
-        VhelL.append(Vhel)
-        RAdegL.append(RAdeg)
-        DEdegL.append(DEdeg)
-        NameL.append(Name)
+            # use Lstar_sdss if needed
+            lstar = -99.99
+            if Lstar_med > 0:
+                lstar = Lstar_med
+            elif Lstar_med < 0 and Lstar_sdss > 0:
+                lstar = Lstar_sdss
+            else:
+                lstar = Lstar_med
+            
+            # use Bmag_sdss if needed
+            b = -99.99
+            if Bmag > 0:
+                b = Bmag
+            elif Bmag < 0 and Bmag_sdss > 0:
+                b = Bmag_sdss
+            else:
+                b = Bmag
+
+                
+            if b > 0 and lstar < 0:
+                print 'Name: ',Name, ' : ',b,', ',lstar
+                print
+
+            majorAxisL.append(float(majorAxis))
+            incL.append(int(inc))
+            adjustedIncL.append(int(adjustedInc))
+            paL.append(int(pa))
+            BmagL.append(float(b))
+            RID_medianL.append(float(RID_median))
+            RID_meanL.append(float(RID_mean))
+            RID_stdL.append(float(RID_std))
+            VhelL.append(int(Vhel))
+            RAdegL.append(float(RAdeg))
+            DEdegL.append(float(DEdeg))
+            NameL.append(Name)
+            LstarL.append(float(lstar))
+            bestDistL.append(float(bestDist))
+            vcorrL.append(int(vcorr))
+        
     
+    print 'len Lstar: ',len(LstarL)
+    print
     gtDict['majorAxis'] = majorAxisL
     gtDict['inc'] = incL
     gtDict['adjustedInc'] = adjustedIncL
     gtDict['PA'] = paL
     gtDict['Bmag'] = BmagL
-    gtDict['Bmag_sdss'] = Bmag_sdssL
     gtDict['RID_median'] = RID_medianL
     gtDict['RID_mean'] = RID_meanL
     gtDict['RID_std'] = RID_stdL
@@ -124,6 +165,9 @@ def main():
     gtDict['RAdeg'] = RAdegL
     gtDict['DEdeg'] = DEdegL
     gtDict['Name'] = NameL
+    gtDict['Lstar'] = LstarL
+    gtDict['bestDist'] = bestDistL
+    gtDict['vcorr'] = vcorrL
     
     pickle.dump(gtDict,pickleFile)
     pickleFile.close()

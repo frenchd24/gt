@@ -446,11 +446,18 @@ def make_histogram_lstar_split(d1,vlo,vhi,saveDirectory,save):
     # make a 4 panel Lstar histogram, each panel with progressively higher v_max values
     #
     
-    phot = d1['Bmedian']
-    BLstar = d1['BLstar']            
-    ra = d1['ra']
-    dec = d1['dec']
-    dist = d1['dist']
+#     phot = d1['Bmedian']
+#     BLstar = d1['BLstar']            
+#     ra = d1['ra']
+#     dec = d1['dec']
+#     dist = d1['dist']
+#     vcorr = d1['vcorr']
+
+    phot = d1['Bmag']
+    BLstar = d1['Lstar']
+    ra = d1['RAdeg']
+    dec = d1['DEdeg']
+    dist = d1['bestDist']
     vcorr = d1['vcorr']
     
     # breakdown of velocity splits
@@ -489,14 +496,20 @@ def make_histogram_lstar_split(d1,vlo,vhi,saveDirectory,save):
     for p,b,r,d,dis,v in zip(phot,BLstar,ra,dec,dist,vcorr):
         if float(v) >=vlo_1 and float(v)<=vhi_1:
             print 'v: ',v
-            cutPhot.append(float(p))
-            cutBLstar.append(log10(float(b)))
-            cutRA.append(float(r))
-            cutDec.append(float(d))
-            cutDist.append(float(dis))
-            cutVcorr.append(float(v))
             
-    print 'cutBLstar: ',cutBLstar
+            if p >0:
+                cutPhot.append(float(p))
+                logLstar = log10(float(b))
+                if not isNumber(logLstar):
+                    print 'logLstar, Lstar: ',logLstar,', ',b
+                    print 'phot: ',p
+                cutBLstar.append(logLstar)
+                cutRA.append(float(r))
+                cutDec.append(float(d))
+                cutDist.append(float(dis))
+                cutVcorr.append(float(v))
+            
+#     print 'cutBLstar: ',cutBLstar
     print
     print 'max: ',max(cutBLstar)
     print 'min: ',min(cutBLstar)
@@ -593,14 +606,15 @@ def make_histogram_lstar_split(d1,vlo,vhi,saveDirectory,save):
     for p,b,r,d,dis,v in zip(phot,BLstar,ra,dec,dist,vcorr):
         if float(v) >=vlo_2 and float(v)<=vhi_2:
             print 'v: ',v
-            cutPhot2.append(float(p))
-            cutBLstar2.append(log10(float(b)))
-            cutRA2.append(float(r))
-            cutDec2.append(float(d))
-            cutDist2.append(float(dis))
-            cutVcorr2.append(float(v))
+            if p >0:
+                cutPhot2.append(float(p))
+                cutBLstar2.append(log10(float(b)))
+                cutRA2.append(float(r))
+                cutDec2.append(float(d))
+                cutDist2.append(float(dis))
+                cutVcorr2.append(float(v))
             
-    print 'cutBLstar: ',cutBLstar2
+#     print 'cutBLstar: ',cutBLstar2
     print
     print 'max: ',max(cutBLstar2)
     print 'min: ',min(cutBLstar2)
@@ -697,14 +711,15 @@ def make_histogram_lstar_split(d1,vlo,vhi,saveDirectory,save):
     for p,b,r,d,dis,v in zip(phot,BLstar,ra,dec,dist,vcorr):
         if float(v) >=vlo_3 and float(v)<=vhi_3:
             print 'v: ',v
-            cutPhot3.append(float(p))
-            cutBLstar3.append(log10(float(b)))
-            cutRA3.append(float(r))
-            cutDec3.append(float(d))
-            cutDist3.append(float(dis))
-            cutVcorr3.append(float(v))
+            if p >0:
+                cutPhot3.append(float(p))
+                cutBLstar3.append(log10(float(b)))
+                cutRA3.append(float(r))
+                cutDec3.append(float(d))
+                cutDist3.append(float(dis))
+                cutVcorr3.append(float(v))
             
-    print 'cutBLstar: ',cutBLstar3
+#     print 'cutBLstar: ',cutBLstar3
     print
     print 'max: ',max(cutBLstar3)
     print 'min: ',min(cutBLstar3)
@@ -802,14 +817,15 @@ def make_histogram_lstar_split(d1,vlo,vhi,saveDirectory,save):
     for p,b,r,d,dis,v in zip(phot,BLstar,ra,dec,dist,vcorr):
         if float(v) >=vlo_4 and float(v)<=vhi_4:
             print 'v: ',v
-            cutPhot4.append(float(p))
-            cutBLstar4.append(log10(float(b)))
-            cutRA4.append(float(r))
-            cutDec4.append(float(d))
-            cutDist4.append(float(dis))
-            cutVcorr4.append(float(v))
+            if p >0:
+                cutPhot4.append(float(p))
+                cutBLstar4.append(log10(float(b)))
+                cutRA4.append(float(r))
+                cutDec4.append(float(d))
+                cutDist4.append(float(dis))
+                cutVcorr4.append(float(v))
             
-    print 'cutBLstar: ',cutBLstar4
+#     print 'cutBLstar: ',cutBLstar4
     print
     print 'max: ',max(cutBLstar4)
     print 'min: ',min(cutBLstar4)
@@ -1133,7 +1149,8 @@ def main():
     
     # open and read the galaxy table    
     if getpass.getuser() == 'frenchd':
-        photFilename = '/Users/frenchd/Research/inclination/fullPhotPickle.p'
+#         photFilename = '/Users/frenchd/Research/inclination/fullPhotPickle.p'
+        photFilename = '/Users/frenchd/Research/GT_update2/pickleGT.p'
         galaxyFilename = '/Users/frenchd/Research/gt/FinalGalaxyTable13_filtered.csv'
         saveDirectory = '/Users/frenchd/Research/GT_update2/galaxyTable_paper/gt_figures/'
     else:
@@ -1161,8 +1178,9 @@ def main():
 ##########################################################################################
     if makeHistogramLstar_split:
         # plot a CDF for Lstar values
-        dataset = 'd_gt'
-        d1 = d[dataset]
+#         dataset = 'd_gt'
+#         d1 = d[dataset]
+        d1 = d
         
         # velocity limits
         vlo = 0
@@ -1177,14 +1195,15 @@ def main():
 ##########################################################################################
     if makeHistogramLstar:
         # plot a CDF for Lstar values
-        dataset = 'd_gt'
-        d1 = d[dataset]
+#         dataset = 'd_gt'
+#         d1 = d[dataset]
+        d1 = d
         
         # velocity limits
         vlo = 0
         vhi = 10000
         
-        save = False
+        save = True
 
         # make histogram plot of Lstar values
         make_histogram_lstar(d1,vlo,vhi,saveDirectory,save)

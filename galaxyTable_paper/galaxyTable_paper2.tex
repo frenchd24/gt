@@ -244,6 +244,15 @@ ESO-LV IIIa-F					& $4.65 \pm 0.13$		& $23.02 \pm 0.92$		&	XXX			\\
 \end{table*}
 
 
+\begin{figure}[ht!]
+        \centering
+        \vspace{0pt}
+        \includegraphics[width=0.50\textwidth]{fig2.pdf}
+        \caption{\small{Position of all galaxies on plotted in Aitoff projection and colored according to heliocentric velocity.}}
+%        \vspace{-5pt}
+        \label{allskyvhel}
+\end{figure} 
+
 \subsection{$MinDiam\_ang$}
 Minor axis diameter in units of arcsec. See \ref{diameters} for a complete discussion.
 
@@ -329,7 +338,7 @@ Distance to the galaxy group, taken from the Tully (2015) group catalog.
 Morphological type as homogenized by NED. We have removed extraneous space characters, and then replaced the individual spaces with underscore characters.
 
 \subsection{flag}
-A flag to help identify suspected issues with a galaxy. For most objects flag = 0. If, however, we suspect an object to be a star we set flag = 1. Our criteria for this is as follows: 1) if an object has $Vhel < 500$ \kms, no diameter measurement, and no $MType$ available, 2) if $MType$ is found to match any of our exclude morphologies. Our full exclude list is the following: [`M-star', `M_star', `Opt.var.', `K4-K5;Candidate_WD', `F6-F8;Candidate_WD', `A', `Candidate_AGN', `M1', `star??', `O', `K_Star', `PN?', `K1', `M0', `M0V', `A0', `DA-star', `High_vel._cloud', `O', `Carbon', `Point_Src_[SDSS]', `Possible_star', `Planetary_nebula', `M3-M4', `F2', `A-star' `PN:', `Cand._glob._cluster', `Candidate_PN', `F', `0.9', `0.92', `14', `14.247', `14.632', `14.728', `14.818', `14.998', `15.159', `15.171', `15.242', `15.341', `15.458', `15.79', `15.819', `16', `16.281', `16.309', `16.348', `16.394', `16.556', `16.736', `16.764', `16.783', `16.981', `17.012', `17.039', `17.441', `17.597', `2E', `2MASS_Extended_Ver.2', `2_S0_galaxies', `2_S0_pec_galaxies', `2_SB0?_pec_galaxies', `2_Spec?', `2_compacts', `2_or_3?_spirals', `2_spirals', `2_symm.sp.arms', `3_S0_galaxies', `:', `A', `A-star', `A0', `A3_HII', `AGN', `AGN+SF', `AGN1', `AGN2', `AGN:', `AGN?', `ALG', `Amorphous', `B', `B...', `D', `DA', `DA+M', `DA+M:', `DA+M:;_Cand._QSO', `DA-star', `DA', `DA+M', `DA+M:', `DA+M:;_Cand._QSO', `DA-star', `DA:', `DANS', `DANS?', `DANS?_Sbrst', `DANS_WR?', `DA_auto', `DBA', `DC:', `DGTO', `DISRPTD', `DISTRBD', `DQ:', `DQ;_Cand._QSO', `DSa', `K1', `K4-K5;Candidate_WD', `K_Star', `M', `M-star', `M0', `M0V', `M1', `M3-M4', `M_Star', `M_star', `Planetary,_or_galaxy', `Planetary?', `Planetary_nebula', `Possible_*Cl', `Possible_star', `bright_near*', `star:', `star?', `star??', `stellar', `stellar-like', `stellar:']
+A flag to help identify suspected issues with a galaxy. For most objects flag = 0. If, however, we suspect an object to be a star we set flag = 1. Our criteria for this is as follows: 1) if an object has $Vhel < 500$ \kms, no diameter measurement, and no $MType$ available, 2) if $MType$ is found to match any of our exclude morphologies. Our full exclude list is the following: ['M-star', 'M\_star', 'Opt.var.', 'K4-K5;Candidate\_WD', 'F6-F8;Candidate\_WD', 'A', 'Candidate\_AGN', 'M1', 'star??', 'O', 'K\_Star', 'PN?', 'K1', 'M0', 'M0V', 'A0', 'DA-star', 'High\_vel.\_cloud', 'O', 'Carbon', 'Point\_Src\_[SDSS]', 'Possible\_star', 'Planetary\_nebula', 'M3-M4', 'F2', 'A-star' 'PN:', 'Cand.\_glob.\_cluster', 'Candidate\_PN', 'F', '0.9', '0.92', '14', '14.247', '14.632', '14.728', '14.818', '14.998', '15.159', '15.171', '15.242', '15.341', '15.458', '15.79', '15.819', '16', '16.281', '16.309', '16.348', '16.394', '16.556', '16.736', '16.764', '16.783', '16.981', '17.012', '17.039', '17.441', '17.597', '2E', '2MASS\_Extended\_Ver.2', '2\_S0\_galaxies', '2\_S0\_pec\_galaxies', '2\_SB0?\_pec\_galaxies', '2\_Spec?', '2\_compacts', '2\_or\_3?\_spirals', '2\_spirals', '2\_symm.sp.arms', '3\_S0\_galaxies', ':', 'A', 'A-star', 'A0', 'A3\_HII', 'AGN', 'AGN+SF', 'AGN1', 'AGN2', 'AGN:', 'AGN?', 'ALG', 'Amorphous', 'B', 'B...', 'D', 'DA', 'DA+M', 'DA+M:', 'DA+M:;\_Cand.\_QSO', 'DA-star', 'DA', 'DA+M', 'DA+M:', 'DA+M:;\_Cand.\_QSO', 'DA-star', 'DA:', 'DANS', 'DANS?', 'DANS?\_Sbrst', 'DANS\_WR?', 'DA\_auto', 'DBA', 'DC:', 'DGTO', 'DISRPTD', 'DISTRBD', 'DQ:', 'DQ;\_Cand.\_QSO', 'DSa', 'K1', 'K4-K5;Candidate\_WD', 'K\_Star', 'M', 'M-star', 'M0', 'M0V', 'M1', 'M3-M4', 'M\_Star', 'M\_star', 'Planetary,\_or\_galaxy', 'Planetary?', 'Planetary\_nebula', 'Possible\_*Cl', 'Possible\_star', 'bright\_near*', 'star:', 'star?', 'star??', 'stellar', 'stellar-like', 'stellar:']
 
 %[`M-star', `M star', `Opt.var.', `K4-K5;Candidate WD', `F6-F8;Candidate WD', `A', `Candidate AGN', `M1', `star??', `O', `K Star', `PN?', `K1', `M0', `M0V', `A0', `DA-star', `High vel. cloud', `O', `Carbon', `Point Src [SDSS]', `Possible star', `Planetary nebula', `M3-M4', `F2', `A-star', `PN:', `Cand. glob. cluster', `Candidate PN', `F'].
 

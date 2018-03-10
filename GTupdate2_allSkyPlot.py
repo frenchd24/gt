@@ -71,7 +71,7 @@ def main():
     user = getpass.getuser()
 
     if user == 'frenchd':        
-        inFilename = '/Users/frenchd/Research/gt/FinalGalaxyTable12_filtered.csv'
+        inFilename = '/Users/frenchd/Research/gt/FinalGalaxyTable13_filtered.csv'
 
     elif user =='David':
         pass
@@ -260,16 +260,16 @@ def main():
     vmax=vmaxVal,lw=0,cmap=colmap,s=4,alpha=0.5)
     
     cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-    cbar.set_label(r'$\rm Vhel ~[km ~s^{-1}]$')
+    cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
     
     xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-    ax.set_xticklabels(xlab, weight=510)
+    ax.set_xticklabels(xlab, weight=530)
     ax.grid(color='k', linestyle='solid', linewidth=0.5)
     tight_layout()
     
 #     plt.show()
     saveDirectory = '/Users/frenchd/Research/GT_update2/'
-    plt.savefig('{0}allSkyVhel4.pdf'.format(saveDirectory),format='pdf')
+    plt.savefig('{0}allSkyVhel5.pdf'.format(saveDirectory),format='pdf')
 
 
 ##########################################################################################
