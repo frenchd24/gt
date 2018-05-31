@@ -37,7 +37,7 @@
 \newcommand{\kms}{$\rm km\, s^{-1}$}
 
 
-\graphicspath{{gt_figures//}}
+\graphicspath{{figures//}}
 
 
 \frenchspacing
@@ -54,25 +54,30 @@
 
 \begin{abstract}
 
-We present an all-sky catalog of galaxies in the nearby, $cz \leq 10,000$ \kms~ redshift range. We have sourced published data available through the NASA Extragalactic Database(NED), the NASA/IPAC Infrared Science Archive (IRSA), the Third Reference Catalogue of Bright Galaxies (RC3), and the Tully (2015) 2MASS galaxy group catalog. 
+We present an all-sky catalog of galaxies in the nearby, $cz \leq 10,000$ \kms~ redshift range. We have sourced published data available through the NASA Extragalactic Database(NED), the NASA/IPAC Infrared Science Archive (IRSA), the Third Reference Catalogue of Bright Galaxies (RC3), and the \cite{tully2015} 2MASS galaxy group catalog. We have taken steps to homogenize the data by converting diameter measurements to 2MASS values, and employing outlier rejection to choose representative values for position angle, inclination, redshift-independent distance, and $B$-band magnitude. 
+
+%\citep[][]{tully2015}
+
+%\cite[][]{tully2015}
 
 \end{abstract}
 \keywords{IGM, CGM, galaxies}
 
 
 \section{Introduction}
-Galaxy catalogs at once seem somewhat outdated in the age of the internet, yet still frustratingly necessary. The ideal solution of an all-sky and all-object online database containing homogenized information has not been completely realized, even as the NASA Extragalactic Database (NED), Vizier, SIMBAD and others fulfill some of these requirements. Each of these databases offer slightly different sets of information on their objects however, and there is often no straightforward way for extracting all the parameters needed. For example, there is no way to return the diameters of all known galaxies in a particular redshift range. Furthermore, comparing and choosing between disparate measurements of common galaxy parameters (e.g., diameter, inclination, magnitude, distance, etc.) is not trivial when a large sample is required. The need for a simple, highly complete lookup nearby galaxy catalog remains.
 
-This catalog was born from 
 
-In an effort to study the circumgalactic medium (CGM) in the nearby universe we have constructed a catalog of galaxies with $cz \leq 10,000$ \kms. All of the data included here is publicly available through the NASA Extragalactic Database (NED) and the NASA/IPAC Infrared Science Archive (IRSA). We have endeavored in various ways to create a single, homogeneous catalog. 
+Galaxy catalogs are at once somewhat outdated in the age of the internet and massive online accessibility, yet still frustratingly necessary. The ideal solution of an all-sky and all-object online database containing homogenized information has not been completely realized, even as the NASA Extragalactic Database (NED), Vizier, SIMBAD and others fulfill some of these requirements. Each of these databases offer slightly different sets of information on their objects however, and there is often no straightforward way for extracting all the parameters needed. For example, there is no way to return the diameters of all known galaxies in a particular redshift range. Furthermore, comparing and choosing between disparate measurements of common galaxy parameters (e.g., diameter, inclination, magnitude, distance, etc.) is not trivial when a large sample is required. The need for a simple, highly complete lookup nearby galaxy catalog remains.
+
+%This catalog was born from 
+
+In an effort to study the circumgalactic medium (CGM) in the nearby universe we have constructed a catalog of galaxies within the redshift range $cz \leq 10,000$ \kms. All of the data included here is publicly available through the NASA Extragalactic Database (NED) and the NASA/IPAC Infrared Science Archive (IRSA). We have endeavored in various ways to create a single, homogeneous catalog. The largest effort on this front revolved around deriving consistent linear and angular galaxy diameters. 
+
+
+We originally began compiling this data base as a tool to aid in the matching of galaxies to absorption detected in background QSO spectra, but we hope that it can prove useful to the community at large.
 
 This catalog is not meant to be entirely robust or comprehensive - rather it's purpose is to present a common batch of parameters for nearby galaxies in a easily retrievable and machine-readable manner. We have nonetheless endeavored to provide reasonable error estimates on all derivations and for as many observed quantities as possible.
 
-
-
-
-We originally began compiling this data base as a tool to aid in the matching of galaxies to absorption detected in background QSO spectra. As effort in it's creation mounted, we decided that it could prove useful to the community.
 
 Some caveats:
 
@@ -81,15 +86,13 @@ Some caveats:
 2. The quality of the data and observational errors are difficult to determine. We present this dataset as more of a convenient "quick-look" directory than a scientifically rigorous data product.
 
 
+%Some background on currently available, up to date catalogs.
+%
+%Is anything missing? What hole are we filling with this one?
+%
+%At the risk of creating yet another catalog 
 
-Some background on currently available, up to date catalogs.
-
-Is anything missing? What hole are we filling with this one?
-
-At the risk of creating yet another catalog 
-
-
-Throughout this catalog we have adopted the cosmology $H_{\rm 0}$ = 71 \kms ~$\rm Mpc^{-1}$, $\rm \Omega_m$ = 0.27, and $\rm \Omega_{\Lambda}$=0.73.
+In Section 2 we discuss our data retrieval methods and handling of distance and velocity measurements. In Section 3, we provide explanation and details for galaxy attribute included in the catalog (i.e., the columns). We discuss caveats and limitations in Section 4. Throughout this catalog we have adopted the cosmology $H_{\rm 0}$ = 71 \kms ~$\rm Mpc^{-1}$, $\rm \Omega_m$ = 0.27, and $\rm \Omega_{\Lambda}$=0.73.
 
 \section{Data}
 
@@ -101,8 +104,8 @@ The goal of this study relies on knowing the locations and properties of all gal
         \centering
         \vspace{0pt}
         \includegraphics[width=0.50\textwidth]{fig1.pdf}
-        \caption{\small{Distribution of $L/L_{\**}$ values for all galaxies in the dataset. Black vertical lines highlight 1, 0.5, 0.1, 0.05 and 0.01 $L_{\**}$. The turnoff around 0.1$L_{\**}$ shows that on average, the dataset is complete to 0.1$L_{\**}$.}}
-%        \vspace{-5pt}
+        \caption{\small{Distribution of $L/L_{\**}$ values for all galaxies in the dataset. Black vertical lines highlight 1, 0.5, 0.1, 0.05 and 0.01 $L_{\**}$. The turnoff in the distribution for each region reveals the corresponding completeness. We are complete to almost 			 0.01$L_{\**}$ out to 2500 \kms~, 0.5$L_{\**}$ between $2500 \leq cz \leq 5000$ \kms, 0.1$L_{\**}$ between $6000 \leq cz \leq 8000$ \kms~, and 0.3$L_{\**}$ $8000 \leq cz \leq 10000$ \kms.}}
+        \vspace{5pt}
         \label{completeness}
 \end{figure} 
 
@@ -115,6 +118,7 @@ For \textbf{XXXX}\% of galaxies, a redshift-independent distance estimate is ava
 All galaxies with zero or negative $v_hel$ have $d_{best}$ set to 1 Mpc, and $derr_{best}$ to 0.5 Mpc. 
 
 
+
 \section{The Catalog}
 The following section describes the contents of each column in the order it appears in the catalog. Null values are marked in one of three ways. Columns containing strings have the null value of 'x', those containing integers have null value '-99', and those containing floating point entries have null value '-99.99'.
 
@@ -123,13 +127,13 @@ Our preferred name for the galaxy. The ordering is as follows: NGC, IC, MRK, UGC
 
 %NGC, MRK, UGC, PHL, 3C, IC, SBS, MCG, ISO, TON, PGC, PG, PB, FGC, HS, HE, KUG, IRAS, RX, CGCG, FBQS, LBQS, SDSS, VCC, 2MASS, 2DF, 6DF, HIPASS, 2MASX, MESSIER. 
 
-If none of these are available, the NED preferred name is adopted.
+If none of these are available, we adopt the NED preferred name.
 
 \subsection{NEDname}
 The preferred name for the galaxy in the NED database.
 
 \subsection{z}
-NED redshift for the galaxy. 
+The NED redshift for the galaxy. 
 
 \subsection{RAdeg}
 Equatorial right ascension coordinate in degrees (J2000.0 epoch).
@@ -165,19 +169,19 @@ Galactic longitude coordinate.
 Galactic latitude coordinate.
 
 \subsection{Vhel}
-Heliocentric radial velocity in \kms units.
+Heliocentric radial velocity in \kms units. As done by NED, we do not make any relativistic correction to these velocities.
 
 \subsection{vcorr}
-Virgocentric flow-corrected velocity. Following Geller \& Huchra (1982), this corresponds to a 300 \kms velocity toward $R.A. = 186^{\circ}.7833$, $decl. = 12^{\circ}.9333$.
+Virgocentric flow-corrected velocity. Following Geller \& Huchra (1982), this corresponds to a 300 \kms~velocity toward $R.A. = 186^{\circ}.7833$, $decl. = 12^{\circ}.9333$.
 
 \subsection{distvcorr}
-Distance calculated from $vcorr$ with a Hubble constant of $H_0 = 71$ \kms $~\rm Mpc^{-1}$ \textbf{WHY? CITATION}.
+Distance calculated from $vcorr$ with a Hubble constant of $H_0 = 71$ \kms $~\rm Mpc^{-1}$.
 
 \subsection{RID\_mean}
-Mean redshift independent distance from the NED-D catalog.
+Mean redshift independent distance from the NED-D catalog \citep{tully2009}. This is the arithmetic mean of the available measurements and therefore does not correspond to any single measurement in particular.
 
 \subsection{RID\_median}
-Median redshift independent distance from the NED-D catalog.
+Median redshift independent distance from the NED-D catalog. This is not the arithmetic median of the set, but rather the published distance value \emph{closest} to the median. The method used for this distance estimate is given by \emph{distIndicator} (Section \ref{distIndicator}).
 
 \subsection{RID\_std}
 Standard deviation of all redshift independent distance measurements.
@@ -244,14 +248,25 @@ ESO-LV IIIa-F					& $4.65 \pm 0.13$		& $23.02 \pm 0.92$		&	XXX			\\
 \end{table*}
 
 
-\begin{figure}[ht!]
+\begin{figure*}[ht!]
         \centering
         \vspace{0pt}
-        \includegraphics[width=0.50\textwidth]{fig2.pdf}
+        \includegraphics[width=0.95\textwidth]{allSkyVhel5.pdf}
         \caption{\small{Position of all galaxies on plotted in Aitoff projection and colored according to heliocentric velocity.}}
 %        \vspace{-5pt}
         \label{allskyvhel}
-\end{figure} 
+\end{figure*}
+
+
+\begin{figure*}[ht!]
+        \centering
+        \vspace{0pt}
+        \includegraphics[width=0.95\textwidth]{mag_v_diam_fit.pdf}
+        \caption{\small{Relationship between absolute $B$-band magnitude and physical diameter for all galaxies with available data. Data are in grey, and a least-squares fit is shown in blue. The function form of this fit is $M ~=~ a ~ log_{10}(D) + b$, with fit parameters $a = -4.696 \pm 0.01$ and $b = -12.963 \pm 0.01$. }}
+%        \vspace{-5pt}
+        \label{magvdiam}
+\end{figure*}
+
 
 \subsection{$MinDiam\_ang$}
 Minor axis diameter in units of arcsec. See \ref{diameters} for a complete discussion.
@@ -281,7 +296,7 @@ Virial radius estimate calculated as
 log R_{vir} = 0.69 log D + 1.24.
 \end{equation}
 
-This follows the parametrization of Stocke et al. (2013) relating a galaxy's luminosity to its virial radius, combined with the Wakker $\&$ Savage (2009) empirical relation between diameter and luminosity (see Wakker et al. 2015 and references therein for further details).
+This follows the parametrization of \cite{stocke2013} relating a galaxy's luminosity to its virial radius, combined with the Wakker $\&$ Savage (2009) empirical relation between diameter and luminosity (see Wakker et al. 2015 and references therein for further details).
 
 \subsection{inc}
 Galaxy inclination calculated as $inc. = \cos^{-1} (minor / major)$ in units of degrees.
@@ -304,13 +319,13 @@ Position angle in units of degrees.
 
 When multiple PA measurements are available for a given target, we choose the highest ranking measurement as outlined in \textbf{ref} $MajDiam\_ang$.
 
-\subsection{diam\_key}
+\subsection{diam\_key} \label{diameter_key}
 The observed passband of the diameter measurements. The published diameters are converted to an equivalent 2MASS $K_s$ ``total" value following the fits given in \ref{diameter_fits}.
 
-\subsection{ratio\_key}
+\subsection{ratio\_key} \label{ratio_key}
 The observed passband of the diameter ratio measurement. This is used to calculate the minor axis diameters and inclinations.
 
-\subsection{pa\_key}
+\subsection{pa\_key} \label{pa_key}
 The observed passband of the position angle measurement.
 
 \subsection{RC3\_type}
@@ -346,7 +361,7 @@ A flag to help identify suspected issues with a galaxy. For most objects flag = 
 
 Secondly, we set flag = 2 if the velocity implied by $RID_median$ (i.e., RID\_median * $H_0$) differs from $Vhel$ by more than 1500 \kms. If flag = 2, it may be wise to use $distvcorr$ instead of $bestDist$. There is no overlap between flag types, ss no possible stars (flag=1) objects have a redshift independent distance available.
 
-\subsection{distIndicator}
+\subsection{distIndicator} \label{distIndicator}
 A key indicating which method was used to measure the redshift-independent distance for this galaxy. Table \ref{distIndicators} shows the keys and their corresponding full names as compiled in the NED-D distance catalog. This key corresponds \textit{only} to the $RID_median$ value.
 
 \begin{table}[ht]\footnotesize
@@ -406,7 +421,9 @@ A key indicating which method was used to measure the redshift-independent dista
 Luminosity class as assigned by NED. Roman numerals between I, II, III, IV, and V designate galaxies in order of decreasing luminosity in an analogous fashion to the standard stellar luminosity classes.
 
 \subsection{E(B-V)}
-Galactic mean dust extinction in the direction of each galaxy from Schlafly and Finkbeiner (2011). \textbf{MORE?}
+Galactic mean dust extinction in the direction of each galaxy from \cite{schlafly2011}. \textbf{MORE?}
+%Schlafly and Finkbeiner (2011)
+
 
 \subsection{Bmag}
 The median B-band magnitude.
@@ -479,15 +496,17 @@ The $L / L_{\**}$ ratio calculated using $B\_min$, $dist\_best$ - $dist\_err$, a
 The NED list of alternative object names for this galaxy with spaces removed. In the main catalog we have included only NGC, IC, UGC, SDSS, and 2MASS names in this column. The associated alternative names table contains the full list. Note that our preferred name, $Name$, and $NEDname$ will only appear in the $altNames$ list if they match these same criteria.
 
 
-\section{Summary}
+\section{Limitations}
 
-Summary...
+
+
+
 
 This research has made use of the NASA/IPAC Extragalactic Database (NED) which is operated by the Jet Propulsion Laboratory, California Institute of Technology, under contract with the National Aeronautics and Space Administration. Based on observations with the NASA/ESA \textit{Hubble Space Telescope}, obtained at the Space Telescope Institute, which is operated by AURA, Inc., under NASA contract NAS 5-26555.
 
 
-\nocite{*}
-\bibliography{paper_bib}
+%\nocite{*}
+\bibliography{bib}
 \bibliographystyle{apj}
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  9 MAR 2018 15:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  20 MAR 2018 11:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -414,7 +414,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip70
 )
-No file galaxyTable_paper2.aux.
+(./galaxyTable_paper2.aux)
 \openout1 = `galaxyTable_paper2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
@@ -436,6 +436,7 @@ Class revtex4 Info: Patching unrecognized longtable package. (Proceeding with f
 ingers crossed) on input line 45.
 Class revtex4 Info: cite was not loaded (OK!) on input line 45.
 Class revtex4 Info: multicol was not loaded (OK!) on input line 45.
+
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count138
@@ -484,6 +485,8 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 45.
 LaTeX Info: Redefining \pageref on input line 45.
 LaTeX Info: Redefining \nameref on input line 45.
+
+(./galaxyTable_paper2.out) (./galaxyTable_paper2.out)
 \@outlinefile=\write3
 \openout3 = `galaxyTable_paper2.out'.
 
@@ -502,382 +505,330 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 57.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 1014) in paragraph at lines 68--69
+Underfull \hbox (badness 1014) in paragraph at lines 74--75
 []\OT1/cmr/m/n/10 In an ef-fort to study the cir-cum-galac-tic medium
  []
 
-<gt_figures//fig1.pdf, id=4, 657.83063pt x 855.11389pt>
-File: gt_figures//fig1.pdf Graphic file (type pdf)
-
-<use gt_figures//fig1.pdf>
-Package pdftex.def Info: gt_figures//fig1.pdf used on input line 103.
+<figures//fig1.pdf, id=319, 657.83063pt x 855.11389pt>
+File: figures//fig1.pdf Graphic file (type pdf)
+ <use figures//fig1.pdf>
+Package pdftex.def Info: figures//fig1.pdf used on input line 107.
 (pdftex.def)             Requested size: 256.55872pt x 333.50613pt.
 
-Overfull \hbox (11.29219pt too wide) in paragraph at lines 103--104
+Overfull \hbox (11.29219pt too wide) in paragraph at lines 107--108
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--104
+Underfull \hbox (badness 10000) in paragraph at lines 108--108
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--104
+Underfull \hbox (badness 10000) in paragraph at lines 108--108
 
  []
 
-
-LaTeX Warning: Reference `completeness' on page 1 undefined on input line 109.
-
-
-LaTeX Warning: Reference `completeness' on page 1 undefined on input line 109.
-
 [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 114.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 118.
 
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 114.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 118.
 
 
 Class revtex4 Warning: Deferred float stuck during \clearpage processing.
 
 
-Underfull \hbox (badness 1303) in paragraph at lines 129--130
+Underfull \hbox (badness 1303) in paragraph at lines 134--135
 []\OT1/cmr/m/n/10 The pre-ferred name for the galaxy in the NED
  []
 
 
-Underfull \hbox (badness 3058) in paragraph at lines 135--136
+Underfull \hbox (badness 3058) in paragraph at lines 140--141
 []\OT1/cmr/m/n/10 Equatorial right as-cen-sion co-or-di-nate in de-grees
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--151
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
 []\OT1/cmr/m/n/10 Equatorial dec-li-na-tion co-or-di-nate sign (J2000.0
  []
 
 
-Underfull \hbox (badness 2181) in paragraph at lines 153--154
+Underfull \hbox (badness 2181) in paragraph at lines 158--159
 []\OT1/cmr/m/n/10 Equatorial dec-li-na-tion de-gree co-or-di-nate (J2000.0
  []
 
 
-Underfull \hbox (badness 1424) in paragraph at lines 156--157
+Underfull \hbox (badness 1424) in paragraph at lines 161--162
 []\OT1/cmr/m/n/10 Equatorial dec-li-na-tion minute co-or-di-nate (J2000.0
  []
 
 
-Underfull \hbox (badness 1810) in paragraph at lines 159--160
+Underfull \hbox (badness 1810) in paragraph at lines 164--165
 []\OT1/cmr/m/n/10 Equatorial dec-li-na-tion sec-ond co-or-di-nate (J2000.0
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
-[]\OT1/cmr/m/n/10 Virgocentric flow-corrected ve-loc-ity. Fol-low-ing
- []
-
-
-Underfull \hbox (badness 5388) in paragraph at lines 171--172
-\OT1/cmr/m/n/10 Geller & Huchra (1982), this cor-re-sponds to a
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
-\OT1/cmr/m/n/10 300 $km s[]$velocity to-ward $\OML/cmm/m/it/10 R:A: \OT1/cmr/m/
-n/10 = 186[]\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 7833$,
- []
-
-[2 <./gt_figures//fig1.pdf>]
+[2 <./figures//fig1.pdf>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 197.
+(hyperref)                removing `math shift' on input line 202.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 197.
+(hyperref)                removing `math shift' on input line 202.
 
 
-LaTeX Warning: Reference `diameter_fits' on page 3 undefined on input line 208.
-
-
-
-LaTeX Warning: Reference `diameter_key' on page 3 undefined on input line 212.
-
-
-LaTeX Warning: Reference `ratio_key' on page 3 undefined on input line 212.
-
-
-LaTeX Warning: Reference `pa_key' on page 3 undefined on input line 212.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--242
+Underfull \hbox (badness 10000) in paragraph at lines 247--247
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 242--242
+Underfull \hbox (badness 10000) in paragraph at lines 247--247
+
+ []
+
+<figures//allSkyVhel5.pdf, id=391, 867.24pt x 433.62pt>
+File: figures//allSkyVhel5.pdf Graphic file (type pdf)
+
+<use figures//allSkyVhel5.pdf>
+Package pdftex.def Info: figures//allSkyVhel5.pdf used on input line 255.
+(pdftex.def)             Requested size: 487.45999pt x 243.732pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--256
+$[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--256
+
+ []
+
+<figures//mag_v_diam_fit.pdf, id=392, 867.24pt x 433.62pt>
+File: figures//mag_v_diam_fit.pdf Graphic file (type pdf)
+
+<use figures//mag_v_diam_fit.pdf>
+Package pdftex.def Info: figures//mag_v_diam_fit.pdf used on input line 265.
+(pdftex.def)             Requested size: 487.45999pt x 243.732pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+$[]$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 247.
+(hyperref)                removing `math shift' on input line 272.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 247.
-
-
-LaTeX Warning: Reference `diameters' on page 3 undefined on input line 248.
+(hyperref)                removing `math shift' on input line 272.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 250.
+(hyperref)                removing `math shift' on input line 275.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 250.
+(hyperref)                removing `subscript' on input line 275.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 250.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 253.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 253.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 253.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 256.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 256.
-
-
-LaTeX Warning: Reference `diameters' on page 3 undefined on input line 257.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 259.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 259.
-
-
-LaTeX Warning: Reference `diameters' on page 3 undefined on input line 260.
+(hyperref)                removing `math shift' on input line 275.
 
 [3]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 262.
+(hyperref)                removing `math shift' on input line 278.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 262.
+(hyperref)                removing `subscript' on input line 278.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 265.
+(hyperref)                removing `math shift' on input line 278.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 265.
+(hyperref)                removing `math shift' on input line 281.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 268.
+(hyperref)                removing `math shift' on input line 281.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 268.
+(hyperref)                removing `math shift' on input line 284.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 278--279
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 284.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 287.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 287.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 290.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 290.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 293.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 293.
+
+[4 <./figures//allSkyVhel5.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 303--304
 []\OT1/cmr/m/n/10 Galaxy in-cli-na-tion cal-cu-lated as $\OML/cmm/m/it/10 inc: 
 \OT1/cmr/m/n/10 =
  []
 
-
-LaTeX Warning: Reference `diameters' on page 4 undefined on input line 291.
-
-
-LaTeX Warning: Reference `diameter_fits' on page 4 undefined on input line 299.
-
-
-[4]
-Underfull \hbox (badness 1924) in paragraph at lines 332--333
+[5 <./figures//mag_v_diam_fit.pdf>]
+Underfull \hbox (badness 1924) in paragraph at lines 357--358
 \OT1/cmr/m/n/10 'F6-F8;Candidate[]WD', 'A', 'Can-di-date[]AGN', 'M1',
  []
 
 
-Underfull \hbox (badness 4479) in paragraph at lines 332--333
+Underfull \hbox (badness 4479) in paragraph at lines 357--358
 \OT1/cmr/m/n/10 'star??', 'O', 'K[]Star', 'PN?', 'K1', 'M0', 'M0V',
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--333
+Underfull \hbox (badness 10000) in paragraph at lines 357--358
 \OT1/cmr/m/n/10 'A0', 'DA-star', 'High[]vel.[]cloud', 'O', 'Car-bon',
  []
 
 
-Underfull \hbox (badness 1755) in paragraph at lines 332--333
+Underfull \hbox (badness 1755) in paragraph at lines 357--358
 \OT1/cmr/m/n/10 'Point[]Src[][SDSS]', 'Pos-si-ble[]star', 'Plan-e-tary[]nebula'
 ,
  []
 
 
-Underfull \hbox (badness 3471) in paragraph at lines 332--333
+Underfull \hbox (badness 3471) in paragraph at lines 357--358
 \OT1/cmr/m/n/10 'M3-M4', 'F2', 'A-star' 'PN:', 'Cand.[]glob.[]cluster',
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--333
+Underfull \hbox (badness 10000) in paragraph at lines 357--358
 \OT1/cmr/m/n/10 'Can-di-date[]PN', 'F', '0.9', '0.92', '14', '14.247',
  []
 
 
-Underfull \hbox (badness 7186) in paragraph at lines 332--333
+Underfull \hbox (badness 7186) in paragraph at lines 357--358
 \OT1/cmr/m/n/10 '15.242', '15.341', '15.458', '15.79', '15.819', '16',
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--333
+Underfull \hbox (badness 10000) in paragraph at lines 357--358
 \OT1/cmr/m/n/10 '2[]S0[]pec[]galaxies', '2[]SB0?[]pec[]galaxies', '2[]Spec?',
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--333
+Underfull \hbox (badness 10000) in paragraph at lines 357--358
 \OT1/cmr/m/n/10 '2[]compacts', '2[]or[]3?[]spirals', '2[]spirals',
  []
 
 
-Underfull \hbox (badness 5064) in paragraph at lines 332--333
+Underfull \hbox (badness 5064) in paragraph at lines 357--358
 \OT1/cmr/m/n/10 '2[]symm.sp.arms', '3[]S0[]galaxies', ':', 'A', 'A-star',
  []
 
 
-Underfull \hbox (badness 1968) in paragraph at lines 332--333
+Underfull \hbox (badness 1968) in paragraph at lines 357--358
 \OT1/cmr/m/n/10 'DA-star', 'DA:', 'DANS', 'DANS?', 'DANS?[]Sbrst',
  []
 
 
-Underfull \hbox (badness 7486) in paragraph at lines 332--333
+Underfull \hbox (badness 7486) in paragraph at lines 357--358
 \OT1/cmr/m/n/10 'DANS[]WR?', 'DA[]auto', 'DBA', 'DC:', 'DGTO',
  []
 
 
-Underfull \hbox (badness 5622) in paragraph at lines 332--333
+Underfull \hbox (badness 5622) in paragraph at lines 357--358
 \OT1/cmr/m/n/10 'DIS-RPTD', 'DIS-TRBD', 'DQ:', 'DQ;[]Cand.[]QSO',
  []
 
 
-Underfull \hbox (badness 5970) in paragraph at lines 332--333
+Underfull \hbox (badness 5970) in paragraph at lines 357--358
 \OT1/cmr/m/n/10 'Pos-si-ble[]*Cl', 'Pos-si-ble[]star', 'bright[]near*', 'star:'
 ,
  []
 
 
-LaTeX Warning: Reference `distIndicators' on page 5 undefined on input line 341
-.
-
-
-Overfull \hbox (16.4298pt too wide) in paragraph at lines 345--390
+Overfull \hbox (16.4298pt too wide) in paragraph at lines 370--415
  []$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 391--391
+Underfull \hbox (badness 10000) in paragraph at lines 416--416
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 391--391
+Underfull \hbox (badness 10000) in paragraph at lines 416--416
 
  []
 
-[5]
+[6]
 
-LaTeX Warning: Reference `Bmag' on page 6 undefined on input line 422.
-
-
-LaTeX Warning: Reference `Bmag' on page 6 undefined on input line 428.
+LaTeX Warning: Reference `Bmag' on page 7 undefined on input line 449.
 
 
-LaTeX Warning: Reference `Bmag' on page 6 undefined on input line 434.
+LaTeX Warning: Reference `Bmag' on page 7 undefined on input line 455.
 
 
-LaTeX Warning: Reference `lstar' on page 6 undefined on input line 446.
+LaTeX Warning: Reference `Bmag' on page 7 undefined on input line 461.
 
 
-Underfull \hbox (badness 8019) in paragraph at lines 449--450
+Underfull \hbox (badness 8019) in paragraph at lines 476--477
 []$\OML/cmm/m/it/10 Lstar[]med$ \OT1/cmr/m/n/10 er-ror cal-cu-lated with $\OML/
 cmm/m/it/10 e[]Bmag$ \OT1/cmr/m/n/10 and
  []
 
 
-LaTeX Warning: Reference `lstar' on page 6 undefined on input line 452.
-
-
-LaTeX Warning: Reference `lstar' on page 6 undefined on input line 458.
-
-
-LaTeX Warning: Reference `lstar' on page 6 undefined on input line 461.
-
-
-Underfull \hbox (badness 5490) in paragraph at lines 461--462
+Underfull \hbox (badness 5490) in paragraph at lines 488--489
 []\OT1/cmr/m/n/10 The $\OML/cmm/m/it/10 L=L[]$ \OT1/cmr/m/n/10 ra-tio cal-cu-la
 ted us-ing $\OML/cmm/m/it/10 e[]Bmag[]min$\OT1/cmr/m/n/10 ,
  []
 
+(./galaxyTable_paper2.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 511.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 511.
+ [7] (./galaxyTable_paper2.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 511.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 511.
+Package rerunfilecheck Info: File `galaxyTable_paper2.out' has not changed.
+(rerunfilecheck)             Checksum: BFD4D3D5D499A51114E037072656075C;4663.
 
-LaTeX Warning: Reference `lstar' on page 6 undefined on input line 464.
-
-
-LaTeX Warning: Reference `lstar' on page 6 undefined on input line 467.
-
-No file galaxyTable_paper2.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 484.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 484.
-[6] (./galaxyTable_paper2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 484.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 484.
-
-
-Package rerunfilecheck Warning: File `galaxyTable_paper2.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `galaxyTable_paper2.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  BFD4D3D5D499A51114E037072656075C;4663.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right .
-
-
  ) 
 Here is how much of TeX's memory you used:
- 8788 strings out of 492995
- 124464 string characters out of 6132704
- 265709 words of memory out of 5000000
- 12137 multiletter control sequences out of 15000+600000
+ 8916 strings out of 492995
+ 126707 string characters out of 6132704
+ 268664 words of memory out of 5000000
+ 12248 multiletter control sequences out of 15000+600000
  13747 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,7n,31p,1916b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,7n,31p,1916b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><
 /usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
@@ -892,24 +843,25 @@ texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/te
 xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texl
 ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texliv
 e/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2
-017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2017
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2017/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2017/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2017/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2017/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2017/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2017/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2017/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2017/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/
-public/amsfonts/symbols/msam10.pfb>
-Output written on galaxyTable_paper2.pdf (6 pages, 465027 bytes).
+017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2017
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2017/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2017/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2017/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2017/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2017/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2017/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2017/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/pub
+lic/amsfonts/symbols/msam10.pfb>
+Output written on galaxyTable_paper2.pdf (7 pages, 3094710 bytes).
 PDF statistics:
- 271 PDF objects out of 1000 (max. 8388607)
- 231 compressed objects within 3 object streams
- 91 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 598 PDF objects out of 1000 (max. 8388607)
+ 532 compressed objects within 6 object streams
+ 98 named destinations out of 1000 (max. 500000)
+ 640 words of extra memory for PDF output out of 10000 (max. 10000000)
 

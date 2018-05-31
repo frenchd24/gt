@@ -20,30 +20,35 @@ MUST BE RUN INSIDE THE PYSALT CONDA ENVIRONMENT:
 '''
 
 import sys
-import os
+# import os
 import csv
-# import string
-import warnings
-import numpy
-# import atpy
+import numpy as np
 import getpass
 from utilities import *
-from pylab import *
+# from pylab import *
 
 import math
-
 import matplotlib.pyplot as plt
 
-from astropy import units as u
-from astropy.coordinates import SkyCoord
 
-from astropy import wcs
-from astropy.io import fits
+from matplotlib import rc
+fontScale = 18
+rc('text', usetex=True)
+rc('font', size=18, family='serif', weight='normal')
+rc('xtick.major',size=8,width=0.6)
+rc('xtick.minor',size=5,width=0.6)
+rc('ytick.major',size=8,width=0.6)
+rc('ytick.minor',size=5,width=0.6)
+rc('xtick',labelsize = fontScale)
+rc('ytick',labelsize = fontScale)
+rc('axes',labelsize = fontScale)
+rc('xtick', labelsize = fontScale)
+rc('ytick',labelsize = fontScale)
+# rc('font', weight = 450)
+# rc('axes',labelweight = 'bold')
+rc('axes',linewidth = 1)
+rc('axes',labelsize=fontScale+4)
 
-# from astropy.io.votable import parse,tree
-
-# from vo.table import parse
-# import vo.tree
 
 ###########################################################################
 
@@ -63,27 +68,27 @@ def calculate_absoluteMag(m,dm,d,dd,e):
 
 
 
-def median_low(l):
-    # returns the closest element in a list to the median, rounding down
-
-    # E.g.,
-    # list = [1, 2, 3, 4, 5]
-    # median_low(list) = 3
-    #
-    # list = [1, 2, 3, 4]
-    # median_low(list) = 2
-    
-#     l.sort()
-    l = np.array(l)
-    med = np.median(l)
-    
-    diff = abs(np.subtract(med,l))
-    
-    diff = list(diff)
-    l = list(l)
-    indexMin = diff.index(min(diff))
-    
-    return l[indexMin]
+# def median_low(l):
+#     # returns the closest element in a list to the median, rounding down
+# 
+#     # E.g.,
+#     # list = [1, 2, 3, 4, 5]
+#     # median_low(list) = 3
+#     #
+#     # list = [1, 2, 3, 4]
+#     # median_low(list) = 2
+#     
+# #     l.sort()
+#     l = np.array(l)
+#     med = np.median(l)
+#     
+#     diff = abs(np.subtract(med,l))
+#     
+#     diff = list(diff)
+#     l = list(l)
+#     indexMin = diff.index(min(diff))
+#     
+#     return l[indexMin]
 
     
 def main():
@@ -92,11 +97,7 @@ def main():
     user = getpass.getuser()
 
     if user == 'frenchd':        
-        inFilename = '/Users/frenchd/Research/gt/FinalGalaxyTable12_filtered.csv'
-
-    elif user =='David':
-        pass
-#         inFilename = '/Users/David/Research_Documents/GT_update2/FinalGalaxyTable10_filtered.csv'
+        inFilename = '/Users/frenchd/Research/gt/FinalGalaxyTable13_filtered.csv'
 
     else:
         print 'User not recognised: ',user
@@ -243,74 +244,113 @@ def main():
         sys.stdout.flush()
             
 ##########################################################################################
+    
+    def magvdiam(d,a,b):
+        '''
+            functional form (from Wakker & Savage 2009):
+                
+                M = -5.78 log R - 12
+        '''
+        try:
+            M = a * np.log10(d) + b
+        except Exception,e:
+            print 'failed on d = {0}'.format(d)
+            M = 0
+            
+        return M
+        
+    
     # plot it
-    colmap = cm.RdBu_r
-    
-    ras = numpy.array(ras)
-    decs = numpy.array(decs)
-#     colors = numpy.array(vhels)
-#     
-#     vmaxVal = max(colors)
-#     vminVal = min(colors)
-# 
-#     norm = matplotlib.colors.Normalize(vmin = vminVal, vmax = vmaxVal)
-#     m = matplotlib.cm.ScalarMappable(norm=norm, cmap=colmap)
-
-
-    # Import all required packages.
-    from astropy import units as u
-    from astropy.coordinates import SkyCoord
-    import matplotlib.pyplot as plt
-    import matplotlib.pylab as lab
-    import numpy as np
-    from mpl_toolkits.axes_grid1 import make_axes_locatable
-
-
-    # Generate random data, for RA between 0 and 360 degrees, for DEC between
-    # -90 and +90 degrees.
-#     ra_random = ras
-#     dec_random = decs
-
-    # Transform the data into a SkyCoord object.
-#     c = SkyCoord(ra=ra_random*u.degree, dec=dec_random*u.degree, frame='icrs')
-
-
-    # Matplotlib needs the coordinates in radians, so we have to convert them.
-    # Furtermore matplotlib needs the RA coordinate in the range between -pi
-    # and pi, not 0 and 2pi.
-#     ra_rad = c.ra.radian
-#     dec_rad = c.dec.radian
-#     ra_rad[ra_rad > np.pi] -= 2. * np.pi
-
-    # Now plot the data in Aitoff projection with a grid.
     fig = plt.figure(figsize=(12,6))
-#     ax = lab.subplot(111,projection="aitoff")
-    ax = lab.subplot(111)
-
-    # lab.subplot(111)
+    ax = plt.subplot(111)
     
-    plot1 = plt.scatter(MajDiamL,BmagL,marker='o',lw=0,s=4,alpha=0.5)
-    xlabel(r'$\rm MajDiam ~ [kpc]$')
-    ylabel(r'$\rm M_B$')
-    ylim(-6,-26)
+    plot1 = plt.scatter(MajDiamL,BmagL,marker='o',lw=0,s=4,alpha=0.8,c='grey')
+    plt.xlabel(r'$\rm Diameter ~ [kpc]$')
+    plt.ylabel(r'$\rm M_B$')
+    plt.ylim(-6,-26)
     ax.set_xscale('log')
-    xlim(1,90)
-
-
-#     plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
-#     vmax=vmaxVal,lw=0,cmap=colmap,s=4,alpha=0.5)
-#     
-#     cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-#     cbar.set_label(r'$\rm Vhel ~[km ~s^{-1}]$')
-#     
-#     xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-#     ax.set_xticklabels(xlab, weight=510)
-#     ax.grid(color='k', linestyle='solid', linewidth=0.5)
-    tight_layout()
+    plt.xlim(1,90)
     
-#     plt.show()
-    saveDirectory = '/Users/frenchd/Research/GT_update2/'
-    plt.savefig('{0}mag_v_diam.pdf'.format(saveDirectory),format='pdf')
+    
+    from scipy.interpolate import interp1d
+    from scipy import interpolate, optimize
+    
+    a = -5.8
+    b = -12.
+#     y = magvdiam(MajDiamL, a, b)
+    
+    # form is optimize.curve_fit(function_name, x_data, y_data)
+    
+    xFit = []
+    yFit = []
+    for m,b in zip(MajDiamL,BmagL):
+        if m >0:
+            xFit.append(m)
+            yFit.append(b)
+    
+    xFit = np.array(xFit)
+    yFit = np.array(yFit)
+    
+    popt, pcov = optimize.curve_fit(magvdiam, xFit, yFit)
+    perr = np.sqrt(np.diag(pcov))
+    print
+    print 'popt: ',popt
+    print
+    print 'pcov: ',pcov
+    print
+    print 'perr: ',perr
+    print
+    
+    
+    a = round(popt[0],3)
+    b = round(popt[1],3)
+    
+    x2 = np.linspace(0.1,200,500)
+    
+    plt.plot(x2, magvdiam(x2, *popt), 'r-',color='blue',alpha = 0.8)
+# ,label=r'$\rm M = {0}, b={1}'.format(a,b)
+    plt.legend()
+
+    # x-axis
+#     ax.xaxis.set_major_locator(plt.LogLocator(base=10.0, numticks=20))
+#     majors = [0, 1, 2, 5, 10, 20, 50, 100]
+#     ax.xaxis.set_major_locator(plt.FixedLocator(majors))
+#     minors = np.append(np.linspace(0, 1, 11)[1:-1], np.array([30, 40, 60, 70, 80, 90]))
+#     ax.xaxis.set_minor_locator(plt.FixedLocator(minors))
+
+
+    majorLocator   = plt.MultipleLocator(10)
+    majorFormatter = plt.FormatStrFormatter(r'$\rm %d$')
+#     minorLocator   = plt.MultipleLocator(10)
+    ax.xaxis.set_major_locator(majorLocator)
+    ax.xaxis.set_major_formatter(majorFormatter)
+#     ax.xaxis.set_minor_locator(minorLocator)
+    ax.set_xticks([1, 2, 5, 10, 20, 50, 100])
+
+
+    # y axis
+    majorLocator   = plt.MultipleLocator(2)
+    majorFormatter = plt.FormatStrFormatter(r'$\rm %d$')
+    minorLocator   = plt.MultipleLocator(0.5)
+    ax.yaxis.set_major_locator(majorLocator)
+    ax.yaxis.set_major_formatter(majorFormatter)
+    ax.yaxis.set_minor_locator(minorLocator)
+
+
+    # make the legend
+    import matplotlib.patches as mpatches
+    import matplotlib.lines as mlines
+
+    blue_line = mlines.Line2D([], [], color='blue', alpha = 0.8,
+    markersize=10, label=r'$\rm M = {0} ~ Log_{{10}}(D) {1}$'.format(a,b))
+                              
+    plt.legend(handles=[blue_line],loc='upper left')
+
+
+    plt.tight_layout()
+    
+    saveDirectory = '/Users/frenchd/Research/GT_update2/galaxyTable_paper/figures/'
+    plt.savefig('{0}mag_v_diam_fit.pdf'.format(saveDirectory),format='pdf')
 
 
 ##########################################################################################

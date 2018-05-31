@@ -43,7 +43,6 @@ import scipy.optimize as optimization
 import pickle
 import itertools
 from utilities import *
-from matplotlib import rc
 
 from matplotlib import rc
 fontScale = 18
