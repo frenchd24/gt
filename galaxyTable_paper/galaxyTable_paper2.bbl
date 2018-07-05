@@ -1,5 +1,18 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{7}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{{Corwin} {et~al.}(1994){Corwin}, {Buta}, \& {de Vaucouleurs}}]{RC3}
+{Corwin}, Jr., H.~G., {Buta}, R.~J., \& {de Vaucouleurs}, G. 1994, \aj, 108,
+  2128
+
+\bibitem[{{Jester} {et~al.}(2005){Jester}, {Schneider}, {Richards}, {Green},
+  {Schmidt}, {Hall}, {Strauss}, {Vanden Berk}, {Stoughton}, {Gunn},
+  {Brinkmann}, {Kent}, {Smith}, {Tucker}, \& {Yanny}}]{jester2005}
+{Jester}, S., {Schneider}, D.~P., {Richards}, G.~T., {et~al.} 2005, \aj, 130,
+  873
+
+\bibitem[{{Marzke} {et~al.}(1994){Marzke}, {Huchra}, \& {Geller}}]{marzke1994}
+{Marzke}, R.~O., {Huchra}, J.~P., \& {Geller}, M.~J. 1994, \apj, 428, 43
 
 \bibitem[{{Schlafly} \& {Finkbeiner}(2011)}]{schlafly2011}
 {Schlafly}, E.~F., \& {Finkbeiner}, D.~P. 2011, \apj, 737, 103

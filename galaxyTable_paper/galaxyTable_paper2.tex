@@ -65,13 +65,17 @@ We present an all-sky catalog of galaxies in the nearby, $cz \leq 10,000$ \kms~ 
 
 
 \section{Introduction}
+Plot diameters vs distance
+
+Look for metals by salt galaxy sightlines
 
 
-Galaxy catalogs are at once somewhat outdated in the age of the internet and massive online accessibility, yet still frustratingly necessary. The ideal solution of an all-sky and all-object online database containing homogenized information has not been completely realized, even as the NASA Extragalactic Database (NED), Vizier, SIMBAD and others fulfill some of these requirements. Each of these databases offer slightly different sets of information on their objects however, and there is often no straightforward way for extracting all the parameters needed. For example, there is no way to return the diameters of all known galaxies in a particular redshift range. Furthermore, comparing and choosing between disparate measurements of common galaxy parameters (e.g., diameter, inclination, magnitude, distance, etc.) is not trivial when a large sample is required. The need for a simple, highly complete lookup nearby galaxy catalog remains.
+
+Galaxy catalogs are at once somewhat outdated in the age of the internet and massive online accessibility, yet still frustratingly necessary. The ideal solution of an all-sky and all-object online database containing homogenized information has not been completely realized, even as the NASA Extragalactic Database (NED)\footnote{https://ned.ipac.caltech.edu/}, Vizier\footnote{http://vizier.u-strasbg.fr/}, SIMBAD\footnote{http://simbad.u-strasbg.fr/simbad/} and others fulfill some of these requirements. Each of these databases offer slightly different sets of information on their objects however, and there is often no straightforward way for extracting all the parameters needed. For example, there is no way to return the diameters of all known galaxies in a particular redshift range. Furthermore, comparing and choosing between disparate measurements of common galaxy parameters (e.g., diameter, inclination, magnitude, distance, etc.) is not trivial when a large sample is required. The need for a simple, highly complete lookup nearby galaxy catalog remains.
 
 %This catalog was born from 
 
-In an effort to study the circumgalactic medium (CGM) in the nearby universe we have constructed a catalog of galaxies within the redshift range $cz \leq 10,000$ \kms. All of the data included here is publicly available through the NASA Extragalactic Database (NED) and the NASA/IPAC Infrared Science Archive (IRSA). We have endeavored in various ways to create a single, homogeneous catalog. The largest effort on this front revolved around deriving consistent linear and angular galaxy diameters. 
+In an effort to study the circumgalactic medium (CGM) in the nearby universe we have constructed a catalog of galaxies within the redshift range $cz \leq 10,000$ \kms. All of the data included here is publicly available through the NASA Extragalactic Database (NED), the NASA/IPAC Infrared Science Archive (IRSA), the Third Reference Catalogue of Bright Galaxies (RC3; \cite{RC3}), and the \cite{tully2015} 2MASS Galaxy Group Catalog. We have endeavored in various ways to create a single, homogeneous catalog. The largest effort on this front revolved around deriving consistent linear and angular galaxy diameters. 
 
 
 We originally began compiling this data base as a tool to aid in the matching of galaxies to absorption detected in background QSO spectra, but we hope that it can prove useful to the community at large.
@@ -251,7 +255,7 @@ ESO-LV IIIa-F					& $4.65 \pm 0.13$		& $23.02 \pm 0.92$		&	XXX			\\
 \begin{figure*}[ht!]
         \centering
         \vspace{0pt}
-        \includegraphics[width=0.95\textwidth]{allSkyVhel5.pdf}
+        \includegraphics[width=0.95\textwidth]{all_sky.pdf}
         \caption{\small{Position of all galaxies on plotted in Aitoff projection and colored according to heliocentric velocity.}}
 %        \vspace{-5pt}
         \label{allskyvhel}
@@ -271,10 +275,10 @@ ESO-LV IIIa-F					& $4.65 \pm 0.13$		& $23.02 \pm 0.92$		&	XXX			\\
 \subsection{$MinDiam\_ang$}
 Minor axis diameter in units of arcsec. See \ref{diameters} for a complete discussion.
 
-\subsection{$e\_MajDiam_ang$}
+\subsection{$e\_MajDiam\_ang$}
 Major axis diameter error. This error is purely a result of the fit to K\_s (2MASS) values, and thus does not take into account any observational errors.
 
-\subsection{$e\_MinDiam_ang$}
+\subsection{$e\_MinDiam\_ang$}
 Minor axis diameter error. This error is purely a result of the fit to K\_s (2MASS) values, and thus does not take into account any observational errors.
 
 \subsection{$MajDiam$}
@@ -429,7 +433,7 @@ Galactic mean dust extinction in the direction of each galaxy from \cite{schlafl
 The median B-band magnitude.
 
 \subsubsection{Photometry}
-For each galaxy we retrieved all B-band and SDSS $g$, $r$, and $z$ measurements. Direct $B$ band measurements are available for $\sim 30\%$ of galaxies, and most of the rest have SDSS magnitudes, which we converted to $B$-band via $B = g + 0.39 (g-r) + 0.21$ (Jester et al. 2005). Per SDSS DR12 guidelines, we preferentially selected SDSS $petrosian$ magnitudes when available, followed by $model$ and $cmodel$ values if $petrosian$ was not available. We then selected the min, max and median $B$-band values when more than one was available for inclusion in the final data product. SDSS-converted $B$-band values are included as a separate estimate. 
+For each galaxy we retrieved all B-band and SDSS $g$, $r$, and $z$ measurements. Direct $B$ band measurements are available for $\sim 30\%$ of galaxies, and most of the rest have SDSS magnitudes, which we converted to $B$-band via $B = g + 0.39 (g-r) + 0.21$ \citep{jester2005}. Per SDSS DR12 guidelines, we preferentially selected SDSS $petrosian$ magnitudes when available, followed by $model$ and $cmodel$ values if $petrosian$ was not available. We then selected the min, max and median $B$-band values when more than one was available for inclusion in the final data product. SDSS-converted $B$-band values are included as a separate estimate. 
 
 We then computed each galaxys luminosity in units of $L_{\**}$ for each of the min, median, max and SDSS $B$-band values as follows:
 
@@ -438,7 +442,7 @@ We then computed each galaxys luminosity in units of $L_{\**}$ for each of the m
 	\label{lstar}
 \end{equation}
 
-where $M_B$ is the galaxy absolute magnitude, calculated using the $d_{best}$ distance estimate as described above. We adopted the CfA galaxy luminosity function by Marzke et al. (1994), which sets $B_{\**} $ = -19.57. 
+where $M_B$ is the galaxy absolute magnitude, calculated using the $d_{best}$ distance estimate as described above. We adopted the CfA galaxy luminosity function by \citep{marzke1994}, which sets $B_{\**} $ = -19.57. 
 
 
 \subsection{Bmag\_key}
@@ -457,16 +461,16 @@ The dimmest B-band magnitude available in NED for this object. See \ref{Bmag} fo
 The survey that contributed the value of $Bmag\_min$.
 
 \subsection{Bmag\_sdss}
-SDSS $g$ and $r$-band measurements converted to $B$-band via $B = g + 0.39 (g-r) + 0.21$ (Jester et al. 2005). See \ref{Bmag} for details.
+SDSS $g$ and $r$-band measurements converted to $B$-band via $B = g + 0.39 (g-r) + 0.21$ \citep{jester2005}. See \ref{Bmag} for details.
 
 \subsection{gmag\_sdss}
-The SDSS $g$-band magnitude used in the $Bmag_sdss$ calculation.
+The SDSS $g$-band magnitude used in the $Bmag_{sdss}$ calculation.
 
 \subsection{rmag\_sdss}
-The SDSS $r$-band magnitude used in the $Bmag_sdss$ calculation. 
+The SDSS $r$-band magnitude used in the $Bmag_{sdss}$ calculation. 
 
 \subsection{zmag\_sdss}
-SDSS $z$-band magnitude used in the $Bmag_sdss$ calculation.
+SDSS $z$-band magnitude used in the $Bmag_{sdss}$ calculation.
 
 \subsection{Lstar\_med}
 The $L / L_{\**}$ ratio calculated using $Bmag$, $distBest$, and $E(B-V)$ following Eq. \ref{lstar}.
@@ -498,15 +502,13 @@ The NED list of alternative object names for this galaxy with spaces removed. In
 
 \section{Limitations}
 
+This research has made use of the NASA/IPAC Extragalactic Database (NED) which is operated by the Jet Propulsion Laboratory, California Institute of Technology, under contract with the National Aeronautics and Space Administration. 
 
-
-
-
-This research has made use of the NASA/IPAC Extragalactic Database (NED) which is operated by the Jet Propulsion Laboratory, California Institute of Technology, under contract with the National Aeronautics and Space Administration. Based on observations with the NASA/ESA \textit{Hubble Space Telescope}, obtained at the Space Telescope Institute, which is operated by AURA, Inc., under NASA contract NAS 5-26555.
+%Based on observations with the NASA/ESA \textit{Hubble Space Telescope}, obtained at the Space Telescope Institute, which is operated by AURA, Inc., under NASA contract NAS 5-26555.
 
 
 %\nocite{*}
-\bibliography{bib}
+\bibliography{/Users/frenchd/Research/inclination/git_inclination/bib}{}
 \bibliographystyle{apj}
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  20 MAR 2018 11:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  5 JUL 2018 12:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -505,149 +505,142 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 57.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 1014) in paragraph at lines 74--75
+
+Package hyperref Warning: Ignoring empty anchor on input line 74.
+
+
+Package hyperref Warning: Ignoring empty anchor on input line 74.
+
+
+Package hyperref Warning: Ignoring empty anchor on input line 74.
+
+
+Underfull \hbox (badness 1014) in paragraph at lines 78--79
 []\OT1/cmr/m/n/10 In an ef-fort to study the cir-cum-galac-tic medium
  []
 
-<figures//fig1.pdf, id=319, 657.83063pt x 855.11389pt>
+<figures//fig1.pdf, id=323, 657.83063pt x 855.11389pt>
 File: figures//fig1.pdf Graphic file (type pdf)
  <use figures//fig1.pdf>
-Package pdftex.def Info: figures//fig1.pdf used on input line 107.
+Package pdftex.def Info: figures//fig1.pdf used on input line 110.
 (pdftex.def)             Requested size: 256.55872pt x 333.50613pt.
 
-Overfull \hbox (11.29219pt too wide) in paragraph at lines 107--108
+Overfull \hbox (11.29219pt too wide) in paragraph at lines 110--111
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--108
+Underfull \hbox (badness 10000) in paragraph at lines 111--111
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--108
+Underfull \hbox (badness 10000) in paragraph at lines 111--111
 
  []
 
 [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 118.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 117.
 
 
-LaTeX Warning: A float is stuck (cannot be placed) on input line 118.
+LaTeX Warning: A float is stuck (cannot be placed) on input line 117.
 
 
 Class revtex4 Warning: Deferred float stuck during \clearpage processing.
 
 
-Underfull \hbox (badness 1303) in paragraph at lines 134--135
+Underfull \hbox (badness 1303) in paragraph at lines 137--138
 []\OT1/cmr/m/n/10 The pre-ferred name for the galaxy in the NED
  []
 
 
-Underfull \hbox (badness 3058) in paragraph at lines 140--141
+Underfull \hbox (badness 3058) in paragraph at lines 143--144
 []\OT1/cmr/m/n/10 Equatorial right as-cen-sion co-or-di-nate in de-grees
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--156
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
 []\OT1/cmr/m/n/10 Equatorial dec-li-na-tion co-or-di-nate sign (J2000.0
  []
 
 
-Underfull \hbox (badness 2181) in paragraph at lines 158--159
+Underfull \hbox (badness 2181) in paragraph at lines 161--162
 []\OT1/cmr/m/n/10 Equatorial dec-li-na-tion de-gree co-or-di-nate (J2000.0
  []
 
 
-Underfull \hbox (badness 1424) in paragraph at lines 161--162
+Underfull \hbox (badness 1424) in paragraph at lines 164--165
 []\OT1/cmr/m/n/10 Equatorial dec-li-na-tion minute co-or-di-nate (J2000.0
  []
 
 
-Underfull \hbox (badness 1810) in paragraph at lines 164--165
+Underfull \hbox (badness 1810) in paragraph at lines 167--168
 []\OT1/cmr/m/n/10 Equatorial dec-li-na-tion sec-ond co-or-di-nate (J2000.0
  []
 
 [2 <./figures//fig1.pdf>]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 202.
+(hyperref)                removing `math shift' on input line 205.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 202.
+(hyperref)                removing `math shift' on input line 205.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--247
+Underfull \hbox (badness 10000) in paragraph at lines 250--250
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--247
+Underfull \hbox (badness 10000) in paragraph at lines 250--250
 
  []
 
-<figures//allSkyVhel5.pdf, id=391, 867.24pt x 433.62pt>
-File: figures//allSkyVhel5.pdf Graphic file (type pdf)
+[3] <figures//all_sky.pdf, id=404, 867.24pt x 433.62pt>
+File: figures//all_sky.pdf Graphic file (type pdf)
 
-<use figures//allSkyVhel5.pdf>
-Package pdftex.def Info: figures//allSkyVhel5.pdf used on input line 255.
+<use figures//all_sky.pdf>
+Package pdftex.def Info: figures//all_sky.pdf used on input line 258.
 (pdftex.def)             Requested size: 487.45999pt x 243.732pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--256
+Underfull \hbox (badness 10000) in paragraph at lines 259--259
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--256
+Underfull \hbox (badness 10000) in paragraph at lines 259--259
 
  []
 
-<figures//mag_v_diam_fit.pdf, id=392, 867.24pt x 433.62pt>
+<figures//mag_v_diam_fit.pdf, id=405, 867.24pt x 433.62pt>
 File: figures//mag_v_diam_fit.pdf Graphic file (type pdf)
 
 <use figures//mag_v_diam_fit.pdf>
-Package pdftex.def Info: figures//mag_v_diam_fit.pdf used on input line 265.
+Package pdftex.def Info: figures//mag_v_diam_fit.pdf used on input line 268.
 (pdftex.def)             Requested size: 487.45999pt x 243.732pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 266--266
+Underfull \hbox (badness 10000) in paragraph at lines 269--269
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 266--266
+Underfull \hbox (badness 10000) in paragraph at lines 269--269
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 272.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 272.
+(hyperref)                removing `math shift' on input line 275.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 275.
 
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 275.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 275.
-
-[3]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 278.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 278.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
@@ -693,139 +686,157 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 293.
 
-[4 <./figures//allSkyVhel5.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 303--304
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 296.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 296.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 306--307
 []\OT1/cmr/m/n/10 Galaxy in-cli-na-tion cal-cu-lated as $\OML/cmm/m/it/10 inc: 
 \OT1/cmr/m/n/10 =
  []
 
-[5 <./figures//mag_v_diam_fit.pdf>]
-Underfull \hbox (badness 1924) in paragraph at lines 357--358
+[4]
+Underfull \hbox (badness 1924) in paragraph at lines 360--361
 \OT1/cmr/m/n/10 'F6-F8;Candidate[]WD', 'A', 'Can-di-date[]AGN', 'M1',
  []
 
 
-Underfull \hbox (badness 4479) in paragraph at lines 357--358
+Underfull \hbox (badness 4479) in paragraph at lines 360--361
 \OT1/cmr/m/n/10 'star??', 'O', 'K[]Star', 'PN?', 'K1', 'M0', 'M0V',
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--358
+Underfull \hbox (badness 10000) in paragraph at lines 360--361
 \OT1/cmr/m/n/10 'A0', 'DA-star', 'High[]vel.[]cloud', 'O', 'Car-bon',
  []
 
 
-Underfull \hbox (badness 1755) in paragraph at lines 357--358
+Underfull \hbox (badness 1755) in paragraph at lines 360--361
 \OT1/cmr/m/n/10 'Point[]Src[][SDSS]', 'Pos-si-ble[]star', 'Plan-e-tary[]nebula'
 ,
  []
 
 
-Underfull \hbox (badness 3471) in paragraph at lines 357--358
+Underfull \hbox (badness 3471) in paragraph at lines 360--361
 \OT1/cmr/m/n/10 'M3-M4', 'F2', 'A-star' 'PN:', 'Cand.[]glob.[]cluster',
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--358
+Underfull \hbox (badness 10000) in paragraph at lines 360--361
 \OT1/cmr/m/n/10 'Can-di-date[]PN', 'F', '0.9', '0.92', '14', '14.247',
  []
 
 
-Underfull \hbox (badness 7186) in paragraph at lines 357--358
+Underfull \hbox (badness 7186) in paragraph at lines 360--361
 \OT1/cmr/m/n/10 '15.242', '15.341', '15.458', '15.79', '15.819', '16',
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--358
+Underfull \hbox (badness 10000) in paragraph at lines 360--361
 \OT1/cmr/m/n/10 '2[]S0[]pec[]galaxies', '2[]SB0?[]pec[]galaxies', '2[]Spec?',
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--358
+Underfull \hbox (badness 10000) in paragraph at lines 360--361
 \OT1/cmr/m/n/10 '2[]compacts', '2[]or[]3?[]spirals', '2[]spirals',
  []
 
 
-Underfull \hbox (badness 5064) in paragraph at lines 357--358
+Underfull \hbox (badness 5064) in paragraph at lines 360--361
 \OT1/cmr/m/n/10 '2[]symm.sp.arms', '3[]S0[]galaxies', ':', 'A', 'A-star',
  []
 
 
-Underfull \hbox (badness 1968) in paragraph at lines 357--358
+Underfull \hbox (badness 1968) in paragraph at lines 360--361
 \OT1/cmr/m/n/10 'DA-star', 'DA:', 'DANS', 'DANS?', 'DANS?[]Sbrst',
  []
 
 
-Underfull \hbox (badness 7486) in paragraph at lines 357--358
+Underfull \hbox (badness 7486) in paragraph at lines 360--361
 \OT1/cmr/m/n/10 'DANS[]WR?', 'DA[]auto', 'DBA', 'DC:', 'DGTO',
  []
 
 
-Underfull \hbox (badness 5622) in paragraph at lines 357--358
+Underfull \hbox (badness 5622) in paragraph at lines 360--361
 \OT1/cmr/m/n/10 'DIS-RPTD', 'DIS-TRBD', 'DQ:', 'DQ;[]Cand.[]QSO',
  []
 
 
-Underfull \hbox (badness 5970) in paragraph at lines 357--358
+Underfull \hbox (badness 5970) in paragraph at lines 360--361
 \OT1/cmr/m/n/10 'Pos-si-ble[]*Cl', 'Pos-si-ble[]star', 'bright[]near*', 'star:'
 ,
  []
 
-
-Overfull \hbox (16.4298pt too wide) in paragraph at lines 370--415
+[5 <./figures//all_sky.pdf>]
+Overfull \hbox (16.4298pt too wide) in paragraph at lines 373--418
  []$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--416
+Underfull \hbox (badness 10000) in paragraph at lines 419--419
 $[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--416
+Underfull \hbox (badness 10000) in paragraph at lines 419--419
 
  []
 
-[6]
 
-LaTeX Warning: Reference `Bmag' on page 7 undefined on input line 449.
-
-
-LaTeX Warning: Reference `Bmag' on page 7 undefined on input line 455.
+LaTeX Warning: Reference `Bmag' on page 6 undefined on input line 452.
 
 
-LaTeX Warning: Reference `Bmag' on page 7 undefined on input line 461.
+LaTeX Warning: Reference `Bmag' on page 6 undefined on input line 458.
+
+[6 <./figures//mag_v_diam_fit.pdf>]
+
+LaTeX Warning: A float is stuck (cannot be placed) on input line 460.
 
 
-Underfull \hbox (badness 8019) in paragraph at lines 476--477
+LaTeX Warning: A float is stuck (cannot be placed) on input line 460.
+
+
+Class revtex4 Warning: Deferred float stuck during \clearpage processing.
+
+
+LaTeX Warning: Reference `Bmag' on page 7 undefined on input line 464.
+
+
+Underfull \hbox (badness 8019) in paragraph at lines 479--480
 []$\OML/cmm/m/it/10 Lstar[]med$ \OT1/cmr/m/n/10 er-ror cal-cu-lated with $\OML/
 cmm/m/it/10 e[]Bmag$ \OT1/cmr/m/n/10 and
  []
 
 
-Underfull \hbox (badness 5490) in paragraph at lines 488--489
+Underfull \hbox (badness 5490) in paragraph at lines 491--492
 []\OT1/cmr/m/n/10 The $\OML/cmm/m/it/10 L=L[]$ \OT1/cmr/m/n/10 ra-tio cal-cu-la
 ted us-ing $\OML/cmm/m/it/10 e[]Bmag[]min$\OT1/cmr/m/n/10 ,
  []
 
 (./galaxyTable_paper2.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 511.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 511.
- [7] (./galaxyTable_paper2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 511.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 511.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 514.
+ [7]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 514.
+ (./galaxyTable_paper2.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 514.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 514.
 Package rerunfilecheck Info: File `galaxyTable_paper2.out' has not changed.
-(rerunfilecheck)             Checksum: BFD4D3D5D499A51114E037072656075C;4663.
+(rerunfilecheck)             Checksum: 32316D244CB6376F650DC5A7C23DA062;4675.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 8916 strings out of 492995
- 126707 string characters out of 6132704
- 268664 words of memory out of 5000000
- 12248 multiletter control sequences out of 15000+600000
+ 8928 strings out of 492995
+ 126866 string characters out of 6132704
+ 289581 words of memory out of 5000000
+ 12257 multiletter control sequences out of 15000+600000
  13747 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,7n,31p,1916b,455s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -858,10 +869,10 @@ e1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/pub
 lic/amsfonts/symbols/msam10.pfb>
-Output written on galaxyTable_paper2.pdf (7 pages, 3094710 bytes).
+Output written on galaxyTable_paper2.pdf (7 pages, 2895396 bytes).
 PDF statistics:
- 598 PDF objects out of 1000 (max. 8388607)
- 532 compressed objects within 6 object streams
- 98 named destinations out of 1000 (max. 500000)
+ 621 PDF objects out of 1000 (max. 8388607)
+ 547 compressed objects within 6 object streams
+ 101 named destinations out of 1000 (max. 500000)
  640 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -2,46 +2,46 @@ This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: galaxyTable_paper2.aux
 The style file: apj.bst
-Database file #1: bib.bib
+Database file #1: /Users/frenchd/Research/inclination/git_inclination/bib.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 4 entries,
+You've used 7 entries,
             3010 wiz_defined-function locations,
-            679 strings with 5298 characters,
-and the built_in function-call counts, 1979 in all, are:
-= -- 169
-> -- 140
+            697 strings with 6029 characters,
+and the built_in function-call counts, 3480 in all, are:
+= -- 289
+> -- 262
 < -- 2
-+ -- 49
-- -- 52
-* -- 165
-:= -- 381
-add.period$ -- 4
-call.type$ -- 4
-change.case$ -- 33
-chr.to.int$ -- 4
-cite$ -- 4
-duplicate$ -- 74
-empty$ -- 109
-format.name$ -- 57
-if$ -- 383
++ -- 89
+- -- 96
+* -- 302
+:= -- 669
+add.period$ -- 7
+call.type$ -- 7
+change.case$ -- 52
+chr.to.int$ -- 7
+cite$ -- 7
+duplicate$ -- 131
+empty$ -- 190
+format.name$ -- 104
+if$ -- 676
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 4
-newline$ -- 16
-num.names$ -- 16
-pop$ -- 32
+missing$ -- 7
+newline$ -- 25
+num.names$ -- 28
+pop$ -- 54
 preamble$ -- 1
-purify$ -- 33
+purify$ -- 52
 quote$ -- 0
-skip$ -- 66
+skip$ -- 111
 stack$ -- 0
-substring$ -- 84
+substring$ -- 147
 swap$ -- 0
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 36
+type$ -- 63
 warning$ -- 0
-while$ -- 16
+while$ -- 27
 width$ -- 0
-write$ -- 43
+write$ -- 73
