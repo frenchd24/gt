@@ -4,44 +4,44 @@ The top-level auxiliary file: galaxyTable_paper2.aux
 The style file: apj.bst
 Database file #1: /Users/frenchd/Research/inclination/git_inclination/bib.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 7 entries,
+You've used 13 entries,
             3010 wiz_defined-function locations,
-            697 strings with 6029 characters,
-and the built_in function-call counts, 3480 in all, are:
-= -- 289
-> -- 262
-< -- 2
-+ -- 89
-- -- 96
-* -- 302
-:= -- 669
-add.period$ -- 7
-call.type$ -- 7
-change.case$ -- 52
-chr.to.int$ -- 7
-cite$ -- 7
-duplicate$ -- 131
-empty$ -- 190
-format.name$ -- 104
-if$ -- 676
+            732 strings with 6904 characters,
+and the built_in function-call counts, 6228 in all, are:
+= -- 533
+> -- 444
+< -- 6
++ -- 150
+- -- 162
+* -- 525
+:= -- 1179
+add.period$ -- 13
+call.type$ -- 13
+change.case$ -- 95
+chr.to.int$ -- 13
+cite$ -- 13
+duplicate$ -- 244
+empty$ -- 358
+format.name$ -- 185
+if$ -- 1225
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 7
-newline$ -- 25
-num.names$ -- 28
-pop$ -- 54
+missing$ -- 13
+newline$ -- 43
+num.names$ -- 52
+pop$ -- 104
 preamble$ -- 1
-purify$ -- 52
+purify$ -- 95
 quote$ -- 0
-skip$ -- 111
+skip$ -- 206
 stack$ -- 0
-substring$ -- 147
+substring$ -- 257
 swap$ -- 0
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 63
+type$ -- 114
 warning$ -- 0
-while$ -- 27
+while$ -- 50
 width$ -- 0
-write$ -- 73
+write$ -- 133

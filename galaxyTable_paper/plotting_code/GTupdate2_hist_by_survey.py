@@ -35,9 +35,9 @@ import matplotlib.pyplot as plt
 
 
 from matplotlib import rc
-fontScale = 18
+fontScale = 16
 rc('text', usetex=True)
-rc('font', size=18, family='serif', weight='normal')
+rc('font', size=16, family='serif', weight='normal')
 rc('xtick.major',size=8,width=0.6)
 rc('xtick.minor',size=5,width=0.6)
 rc('ytick.major',size=8,width=0.6)
@@ -245,7 +245,9 @@ def main():
         dec = eval(l['DEdeg'])
         
         found = False
-        if flag != 1:
+#         if flag != 1:
+        if flag == 0:
+
             if bfind(altNames,'2MAS'):
                 two_mass_vhel.append(vhel)
                 found = True
@@ -279,7 +281,7 @@ def main():
 
     
     # plot it
-    fig = plt.figure(figsize=(12,12))
+    fig = plt.figure(figsize=(12,8))
     ax = plt.subplot(111)
     
     print 'len(two_mass_vhel): ',len(two_mass_vhel)
@@ -307,23 +309,61 @@ def main():
     stack = False
 #     plot1 = plt.scatter(MajDiamL,BmagL,marker='o',lw=0,s=4,alpha=0.8,c='grey')
 
+    color_blue = '#436bad'      # french blue
+    color_red = '#ec2d01'     # tomato red
+
+    color_green = '#1b9e77'
+    color_purple = '#7570b3'
+    color_orange = '#d95f02'
+    color_purple2 = '#984ea3'
+    
+    color_green2 = '#4daf4a'
+    color_orange = '#d95f02'
+    color_purple3 = '#7570b3'
+    color_pink = '#e7298a'
+    color_lime = '#66a61e'
+    color_yellow = '#e6ab02'
+    color_brown = '#a6761d'
+    color_coal = '#666666'
+    
+    color_blue2 = '#377eb8'
+
+
     style_2mass = 'solid'
     marker_2mass = ''
+    color_2mass = 'black'
+    lw_2mass = 2.5
     
     style_sdss = '--'
     marker_sdss = ''
+#     color_sdss = 'red'
+    color_sdss = color_red
+    lw_sdss = 2
     
     style_2df = 'solid'
     marker_2df = 'x'
+#     color_2df = 'goldenrod'
+    color_2df = color_yellow
+    lw_2df = 1.5
     
     style_6df = '-.'
     marker_6df = ''
+#     color_6df = 'darkgreen'
+#     color_6df = color_purple2
+    color_6df = 'darkgreen'
+    lw_6df = 2
     
     style_rc3 = ':'
     marker_rc3 = 'd'
+#     color_rc3 = 'blue'
+    color_rc3 = color_blue2
+    lw_rc3 = 2
     
     style_other = 'solid'
     marker_other = ''
+#     color_other = 'grey'
+    color_other = 'grey'
+    lw_other = 1.5
 
 ##########################################################################################
     # 2MAS
@@ -335,45 +375,45 @@ def main():
 #     print 'bin_edges: ',bin_edges
 #     print
 
-    ax.plot(bin_edges[:-1], hist, color='black', lw=2.5, label= r'$\rm 2MASS$', ls=style_2mass, marker=marker_2mass)
+    ax.plot(bin_edges[:-1], hist, color=color_2mass, lw=lw_2mass, label= r'$\rm 2MASS$', ls=style_2mass, marker=marker_2mass)
 ##########################################################################################
     # SDSS
 #     ax.hist(sdss_vhel, n_bins, histtype='step', stacked=stack, fill=False,
 #     label = r'$\rm SDSS$',color='red',lw=2,ls='dashed')
     
     hist, bin_edges = np.histogram(sdss_vhel, bins=n_bins)
-    ax.plot(bin_edges[:-1], hist, color='red', lw=2, label= r'$\rm SDSS$', ls=style_sdss, marker=marker_sdss)
+    ax.plot(bin_edges[:-1], hist, color=color_sdss, lw=lw_sdss, label= r'$\rm SDSS$', ls=style_sdss, marker=marker_sdss)
 ##########################################################################################
     # 2df
 #     ax.hist(two_df_vhel, n_bins, histtype='step', stacked=stack, fill=False,
 #     label = r'$\rm 2dF$',color='goldenrod',lw=2,ls='dotted')
     
     hist, bin_edges = np.histogram(two_df_vhel, bins=n_bins)
-    ax.plot(bin_edges[:-1], hist, color='goldenrod', lw=1.5, label= r'$\rm 2dF$', ls=style_2df, marker=marker_2df,ms=10)
+    ax.plot(bin_edges[:-1], hist, color=color_2df, lw=lw_2df, label= r'$\rm 2dF$', ls=style_2df, marker=marker_2df,ms=10)
 ##########################################################################################
     # 6df
 #     ax.hist(six_df_vhel, n_bins, histtype='step', stacked=stack, fill=False,
 #     label = r'$\rm 6dF$',color='darkgreen',lw=2,marker='-.')
     
     hist, bin_edges = np.histogram(six_df_vhel, bins=n_bins)
-    ax.plot(bin_edges[:-1], hist, color='darkgreen', lw=2, label= r'$\rm 6dF$', ls=style_6df, marker=marker_6df)
+    ax.plot(bin_edges[:-1], hist, color=color_6df, lw=lw_6df, label= r'$\rm 6dF$', ls=style_6df, marker=marker_6df)
 ##########################################################################################
     # RC3
 #     ax.hist(rc3_vhel, n_bins, histtype='step', stacked=stack, fill=False,
 #     label = r'$\rm RC3$',lw=2,color='blue',ls='dotted')
     
     hist, bin_edges = np.histogram(rc3_vhel, bins=n_bins)
-    ax.plot(bin_edges[:-1], hist, color='blue', lw=2, label= r'$\rm RC3$', ls=style_rc3, marker=marker_rc3)
+    ax.plot(bin_edges[:-1], hist, color=color_rc3, lw=lw_rc3, label= r'$\rm RC3$', ls=style_rc3, marker=marker_rc3)
 ##########################################################################################
     # all else
 #     ax.hist(other_vhel, n_bins, histtype='step', stacked=stack, fill=False,
 #     label = r'$\rm Other$',color='grey',lw=1,ls='solid')
     
     hist, bin_edges = np.histogram(other_vhel, bins=n_bins)
-    ax.plot(bin_edges[:-1], hist, color='grey', lw=1.5, label= r'$\rm Other$', ls=style_other, marker=marker_other)
+    ax.plot(bin_edges[:-1], hist, color=color_other, lw=lw_other, label= r'$\rm Other$', ls=style_other, marker=marker_other)
 ##########################################################################################
 
-    plt.xlabel(r'$\rm V_{hel}~ [kpc]$')
+    plt.xlabel(r'$\rm V_{hel}~ [km s^{{-1}}]$')
     plt.ylabel(r'$\rm Number $')
 
 #     plt.ylim(-6,-26)
@@ -413,7 +453,7 @@ def main():
     plt.tight_layout()
     
     saveDirectory = '/Users/frenchd/Research/GT_update2/galaxyTable_paper/figures/'
-    plt.savefig('{0}hist_by_survey5_filtered.pdf'.format(saveDirectory),format='pdf')
+    plt.savefig('{0}hist_by_survey8_filtered_0only.pdf'.format(saveDirectory),format='pdf')
 
 
 ##########################################################################################
