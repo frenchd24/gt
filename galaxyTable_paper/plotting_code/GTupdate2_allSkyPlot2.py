@@ -84,6 +84,7 @@ def main():
 
     if user == 'frenchd':        
         inFilename = '/Users/frenchd/Research/gt/FinalGalaxyTable13_filtered.csv'
+        saveDirectory = '/Users/frenchd/Research/GT_update2/galaxyTable_paper/figures/all_sky_12h/'
 
     elif user =='David':
         pass
@@ -94,6 +95,12 @@ def main():
         print 'Exiting.'
         sys.exit()
         
+    
+    # plot all sky map in 10 velocity bins centered on 0h RA
+    plot_all_sky = False
+    
+    # plot all sky map in 10 velocity bins centered on 12h RA
+    plot_all_sky_12h = True
         
     # open the files
         # open the files
@@ -326,8 +333,6 @@ def main():
 ##########################################################################################
 ##########################################################################################
 
-    saveDirectory = '/Users/frenchd/Research/GT_update2/galaxyTable_paper/figures/all_sky_git/'
-
     alpha_galaxy = 0.6
     size_galaxy = 2
 
@@ -344,423 +349,875 @@ def main():
     norm = matplotlib.colors.Normalize(vmin = vminVal, vmax = vmaxVal)
     m = matplotlib.cm.ScalarMappable(norm=norm, cmap=colmap)
 
-
 ##########################################################################################
-    # 0 - 1000 km/s
-    
-    ras = np.array(ra1)
-    decs = np.array(dec1)
-    colors = np.array(v1)
-    # Transform the data into a SkyCoord object.
-    c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
-
-
-    # Matplotlib needs the coordinates in radians, so we have to convert them.
-    # Furtermore matplotlib needs the RA coordinate in the range between -pi
-    # and pi, not 0 and 2pi.
-    ra_rad = c.ra.radian
-    dec_rad = c.dec.radian
-    ra_rad[ra_rad > np.pi] -= 2. * np.pi
-
-    # Now plot the data in Aitoff projection with a grid.
-    fig = plt.figure(figsize=(12,6))
-    ax = lab.subplot(111,projection="aitoff")
-    # lab.subplot(111)
-
-    plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
-    vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
-    
-    cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-    cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
-    
-    xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-    ax.set_xticklabels(xlab, weight=530)
-    ax.grid(color='k', linestyle='solid', linewidth=0.5)
-    tight_layout()
-    
-#     plt.show()
-    plt.savefig('{0}1.pdf'.format(saveDirectory),format='pdf')
-
-##########################################################################################
-    # 1000 - 2000 km/s
-    
-    ras = np.array(ra2)
-    decs = np.array(dec2)
-    colors = np.array(v2)
-    # Transform the data into a SkyCoord object.
-    c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
-
-
-    # Matplotlib needs the coordinates in radians, so we have to convert them.
-    # Furtermore matplotlib needs the RA coordinate in the range between -pi
-    # and pi, not 0 and 2pi.
-    ra_rad = c.ra.radian
-    dec_rad = c.dec.radian
-    ra_rad[ra_rad > np.pi] -= 2. * np.pi
-
-    # Now plot the data in Aitoff projection with a grid.
-    fig = plt.figure(figsize=(12,6))
-    ax = lab.subplot(111,projection="aitoff")
-    # lab.subplot(111)
-
-    plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
-    vmax=vmaxVal, lw=0, cmap=colmap, s=4, alpha=alpha_galaxy)
-    
-    cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-    cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
-    
-    xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-    ax.set_xticklabels(xlab, weight=530)
-    ax.grid(color='k', linestyle='solid', linewidth=0.5)
-    tight_layout()
-    
-#     plt.show()
-    plt.savefig('{0}2.pdf'.format(saveDirectory),format='pdf')
-    
-##########################################################################################
-    # 2000 - 3000 km/s
-    
-    ras = np.array(ra3)
-    decs = np.array(dec3)
-    colors = np.array(v3)
-    # Transform the data into a SkyCoord object.
-    c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
-
-
-    # Matplotlib needs the coordinates in radians, so we have to convert them.
-    # Furtermore matplotlib needs the RA coordinate in the range between -pi
-    # and pi, not 0 and 2pi.
-    ra_rad = c.ra.radian
-    dec_rad = c.dec.radian
-    ra_rad[ra_rad > np.pi] -= 2. * np.pi
-
-    # Now plot the data in Aitoff projection with a grid.
-    fig = plt.figure(figsize=(12,6))
-    ax = lab.subplot(111,projection="aitoff")
-    # lab.subplot(111)
-
-    plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
-    vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
-    
-    cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-    cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
-    
-    xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-    ax.set_xticklabels(xlab, weight=530)
-    ax.grid(color='k', linestyle='solid', linewidth=0.5)
-    tight_layout()
-    
-#     plt.show()
-    plt.savefig('{0}3.pdf'.format(saveDirectory),format='pdf')
-
-##########################################################################################
-    # 3000 - 4000 km/s
-    
-    ras = np.array(ra4)
-    decs = np.array(dec4)
-    colors = np.array(v4)
-    # Transform the data into a SkyCoord object.
-    c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
-
-
-    # Matplotlib needs the coordinates in radians, so we have to convert them.
-    # Furtermore matplotlib needs the RA coordinate in the range between -pi
-    # and pi, not 0 and 2pi.
-    ra_rad = c.ra.radian
-    dec_rad = c.dec.radian
-    ra_rad[ra_rad > np.pi] -= 2. * np.pi
-
-    # Now plot the data in Aitoff projection with a grid.
-    fig = plt.figure(figsize=(12,6))
-    ax = lab.subplot(111,projection="aitoff")
-    # lab.subplot(111)
-
-    plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
-    vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
-    
-    cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-    cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
-    
-    xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-    ax.set_xticklabels(xlab, weight=530)
-    ax.grid(color='k', linestyle='solid', linewidth=0.5)
-    tight_layout()
-    
-#     plt.show()
-    plt.savefig('{0}4.pdf'.format(saveDirectory),format='pdf')
-
-##########################################################################################
-    # 4000 - 5000 km/s
-    
-    ras = np.array(ra5)
-    decs = np.array(dec5)
-    colors = np.array(v5)
-    # Transform the data into a SkyCoord object.
-    c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
-
-
-    # Matplotlib needs the coordinates in radians, so we have to convert them.
-    # Furtermore matplotlib needs the RA coordinate in the range between -pi
-    # and pi, not 0 and 2pi.
-    ra_rad = c.ra.radian
-    dec_rad = c.dec.radian
-    ra_rad[ra_rad > np.pi] -= 2. * np.pi
-
-    # Now plot the data in Aitoff projection with a grid.
-    fig = plt.figure(figsize=(12,6))
-    ax = lab.subplot(111,projection="aitoff")
-    # lab.subplot(111)
-
-    plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
-    vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
-    
-    cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-    cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
-    
-    xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-    ax.set_xticklabels(xlab, weight=530)
-    ax.grid(color='k', linestyle='solid', linewidth=0.5)
-    tight_layout()
-    
-#     plt.show()
-    plt.savefig('{0}5.pdf'.format(saveDirectory),format='pdf')
-
-
-
-##########################################################################################
-    # 5000 - 6000 km/s
-    
-    ras = np.array(ra6)
-    decs = np.array(dec6)
-    colors = np.array(v6)
-    # Transform the data into a SkyCoord object.
-    c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
-
-
-    # Matplotlib needs the coordinates in radians, so we have to convert them.
-    # Furtermore matplotlib needs the RA coordinate in the range between -pi
-    # and pi, not 0 and 2pi.
-    ra_rad = c.ra.radian
-    dec_rad = c.dec.radian
-    ra_rad[ra_rad > np.pi] -= 2. * np.pi
-
-    # Now plot the data in Aitoff projection with a grid.
-    fig = plt.figure(figsize=(12,6))
-    ax = lab.subplot(111,projection="aitoff")
-    # lab.subplot(111)
-
-    plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
-    vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
-    
-    cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-    cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
-    
-    xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-    ax.set_xticklabels(xlab, weight=530)
-    ax.grid(color='k', linestyle='solid', linewidth=0.5)
-    tight_layout()
-    
-#     plt.show()
-    plt.savefig('{0}6.pdf'.format(saveDirectory),format='pdf')
-
-##########################################################################################
-    # 6000 - 7000 km/s
-    
-    ras = np.array(ra7)
-    decs = np.array(dec7)
-    colors = np.array(v7)
-    # Transform the data into a SkyCoord object.
-    c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
-
-
-    # Matplotlib needs the coordinates in radians, so we have to convert them.
-    # Furtermore matplotlib needs the RA coordinate in the range between -pi
-    # and pi, not 0 and 2pi.
-    ra_rad = c.ra.radian
-    dec_rad = c.dec.radian
-    ra_rad[ra_rad > np.pi] -= 2. * np.pi
-
-    # Now plot the data in Aitoff projection with a grid.
-    fig = plt.figure(figsize=(12,6))
-    ax = lab.subplot(111,projection="aitoff")
-    # lab.subplot(111)
-
-    plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
-    vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
-    
-    cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-    cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
-    
-    xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-    ax.set_xticklabels(xlab, weight=530)
-    ax.grid(color='k', linestyle='solid', linewidth=0.5)
-    tight_layout()
-    
-#     plt.show()
-    plt.savefig('{0}7.pdf'.format(saveDirectory),format='pdf')
-    
-    
-    
-##########################################################################################
-    # 7000 - 8000 km/s
-    
-    ras = np.array(ra8)
-    decs = np.array(dec8)
-    colors = np.array(v8)
-    # Transform the data into a SkyCoord object.
-    c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
-
-
-    # Matplotlib needs the coordinates in radians, so we have to convert them.
-    # Furtermore matplotlib needs the RA coordinate in the range between -pi
-    # and pi, not 0 and 2pi.
-    ra_rad = c.ra.radian
-    dec_rad = c.dec.radian
-    ra_rad[ra_rad > np.pi] -= 2. * np.pi
-
-    # Now plot the data in Aitoff projection with a grid.
-    fig = plt.figure(figsize=(12,6))
-    ax = lab.subplot(111,projection="aitoff")
-    # lab.subplot(111)
-
-    plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
-    vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
-    
-    cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-    cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
-    
-    xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-    ax.set_xticklabels(xlab, weight=530)
-    ax.grid(color='k', linestyle='solid', linewidth=0.5)
-    tight_layout()
-    
-#     plt.show()
-    plt.savefig('{0}8.pdf'.format(saveDirectory),format='pdf')
-    
-    
-##########################################################################################
-    # 8000 - 9000 km/s
-    
-    ras = np.array(ra9)
-    decs = np.array(dec9)
-    colors = np.array(v9)
-    # Transform the data into a SkyCoord object.
-    c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
-
-
-    # Matplotlib needs the coordinates in radians, so we have to convert them.
-    # Furtermore matplotlib needs the RA coordinate in the range between -pi
-    # and pi, not 0 and 2pi.
-    ra_rad = c.ra.radian
-    dec_rad = c.dec.radian
-    ra_rad[ra_rad > np.pi] -= 2. * np.pi
-
-    # Now plot the data in Aitoff projection with a grid.
-    fig = plt.figure(figsize=(12,6))
-    ax = lab.subplot(111,projection="aitoff")
-    # lab.subplot(111)
-
-    plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
-    vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
-    
-    cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-    cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
-    
-    xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-    ax.set_xticklabels(xlab, weight=530)
-    ax.grid(color='k', linestyle='solid', linewidth=0.5)
-    tight_layout()
-    
-#     plt.show()
-    plt.savefig('{0}9.pdf'.format(saveDirectory),format='pdf')
-
-##########################################################################################
-    # 9000 - 10000 km/s
-    
-    ras = np.array(ra10)
-    decs = np.array(dec10)
-    colors = np.array(v10)
-    # Transform the data into a SkyCoord object.
-    c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
-
-
-    # Matplotlib needs the coordinates in radians, so we have to convert them.
-    # Furtermore matplotlib needs the RA coordinate in the range between -pi
-    # and pi, not 0 and 2pi.
-    ra_rad = c.ra.radian
-    dec_rad = c.dec.radian
-    ra_rad[ra_rad > np.pi] -= 2. * np.pi
-
-    # Now plot the data in Aitoff projection with a grid.
-    fig = plt.figure(figsize=(12,6))
-    ax = lab.subplot(111,projection="aitoff")
-    # lab.subplot(111)
-
-    plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
-    vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
-    
-    cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-    cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
-    
-    xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-    ax.set_xticklabels(xlab, weight=530)
-    ax.grid(color='k', linestyle='solid', linewidth=0.5)
-    tight_layout()
-    
-#     plt.show()
-    plt.savefig('{0}10.pdf'.format(saveDirectory),format='pdf')
-
 ##########################################################################################
 
+    if plot_all_sky:
+
+    ##########################################################################################
+        # 0 - 1000 km/s
+    
+        ras = np.array(ra1)
+        decs = np.array(dec1)
+        colors = np.array(v1)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}1.pdf'.format(saveDirectory),format='pdf')
+
+    ##########################################################################################
+        # 1000 - 2000 km/s
+    
+        ras = np.array(ra2)
+        decs = np.array(dec2)
+        colors = np.array(v2)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=4, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}2.pdf'.format(saveDirectory),format='pdf')
+    
+    ##########################################################################################
+        # 2000 - 3000 km/s
+    
+        ras = np.array(ra3)
+        decs = np.array(dec3)
+        colors = np.array(v3)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}3.pdf'.format(saveDirectory),format='pdf')
+
+    ##########################################################################################
+        # 3000 - 4000 km/s
+    
+        ras = np.array(ra4)
+        decs = np.array(dec4)
+        colors = np.array(v4)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}4.pdf'.format(saveDirectory),format='pdf')
+
+    ##########################################################################################
+        # 4000 - 5000 km/s
+    
+        ras = np.array(ra5)
+        decs = np.array(dec5)
+        colors = np.array(v5)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}5.pdf'.format(saveDirectory),format='pdf')
+
+
+
+    ##########################################################################################
+        # 5000 - 6000 km/s
+    
+        ras = np.array(ra6)
+        decs = np.array(dec6)
+        colors = np.array(v6)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}6.pdf'.format(saveDirectory),format='pdf')
+
+    ##########################################################################################
+        # 6000 - 7000 km/s
+    
+        ras = np.array(ra7)
+        decs = np.array(dec7)
+        colors = np.array(v7)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}7.pdf'.format(saveDirectory),format='pdf')
+    
+    
+    
+    ##########################################################################################
+        # 7000 - 8000 km/s
+    
+        ras = np.array(ra8)
+        decs = np.array(dec8)
+        colors = np.array(v8)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}8.pdf'.format(saveDirectory),format='pdf')
+    
+    
+    ##########################################################################################
+        # 8000 - 9000 km/s
+    
+        ras = np.array(ra9)
+        decs = np.array(dec9)
+        colors = np.array(v9)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}9.pdf'.format(saveDirectory),format='pdf')
+
+    ##########################################################################################
+        # 9000 - 10000 km/s
+    
+        ras = np.array(ra10)
+        decs = np.array(dec10)
+        colors = np.array(v10)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}10.pdf'.format(saveDirectory),format='pdf')
+
+    ##########################################################################################
+
+    ##########################################################################################
+        # Full table
+    
+        ras = np.array(all_ras)
+        decs = np.array(all_decs)
+        colors = np.array(all_vhels)
+    
+        print
+        print 'len(ras) : ',len(ras)
+        print 'len(colors) : ',len(colors)
+        print 'colors[:10] : ', colors[:10]
+        print
+    
+        vmaxVal = max(colors)
+        vminVal = min(colors)
+
+        norm = matplotlib.colors.Normalize(vmin = vminVal, vmax = vmaxVal)
+        m = matplotlib.cm.ScalarMappable(norm=norm, cmap=colmap)
+    
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad, marker='o', c=colors, vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}all_sky.pdf'.format(saveDirectory),format='pdf')
+         
+        
 ##########################################################################################
-    # Full table
-    
-    ras = np.array(all_ras)
-    decs = np.array(all_decs)
-    colors = np.array(all_vhels)
-    
-    print
-    print 'len(ras) : ',len(ras)
-    print 'len(colors) : ',len(colors)
-    print 'colors[:10] : ', colors[:10]
-    print
-    
-    vmaxVal = max(colors)
-    vminVal = min(colors)
+##########################################################################################
+##########################################################################################
 
-    norm = matplotlib.colors.Normalize(vmin = vminVal, vmax = vmaxVal)
-    m = matplotlib.cm.ScalarMappable(norm=norm, cmap=colmap)
+    ra_shift = -180.0
+#     xlabels = ['20h','22h','0h','2h','4h','6h','8h','10h','14h','16h','18h']
+
+    xlabels = ['2h','4h','6h','8h','10h','12h','14h','16h','18h','20h','22h']
+#     xlabels = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
+
+    if plot_all_sky_12h:
+
+    ##########################################################################################
+        # 0 - 1000 km/s
+        
+        print 'ra1[0:5] : ',ra1[0:5]
+        
+        ras = np.array(ra1) + ra_shift
+        decs = np.array(dec1)
+        colors = np.array(v1)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+        print 'ras[0:5] : ',ras[0:5]
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
-    # Transform the data into a SkyCoord object.
-    c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
-
-
-    # Matplotlib needs the coordinates in radians, so we have to convert them.
-    # Furtermore matplotlib needs the RA coordinate in the range between -pi
-    # and pi, not 0 and 2pi.
-    ra_rad = c.ra.radian
-    dec_rad = c.dec.radian
-    ra_rad[ra_rad > np.pi] -= 2. * np.pi
-
-    # Now plot the data in Aitoff projection with a grid.
-    fig = plt.figure(figsize=(12,6))
-    ax = lab.subplot(111,projection="aitoff")
-    # lab.subplot(111)
-
-    plot1 = plt.scatter(ra_rad, dec_rad, marker='o', c=colors, vmin=vminVal,\
-    vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
     
-    cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-    cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        xlab = xlabels
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
     
-    xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-    ax.set_xticklabels(xlab, weight=530)
-    ax.grid(color='k', linestyle='solid', linewidth=0.5)
-    tight_layout()
-    
-#     plt.show()
-    plt.savefig('{0}all_sky.pdf'.format(saveDirectory),format='pdf')
+    #     plt.show()
+        plt.savefig('{0}1.pdf'.format(saveDirectory),format='pdf')
 
+    ##########################################################################################
+        # 1000 - 2000 km/s
+    
+        ras = np.array(ra2) + ra_shift
+        decs = np.array(dec2)
+        colors = np.array(v2)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=4, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = xlabels
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}2.pdf'.format(saveDirectory),format='pdf')
+    
+    ##########################################################################################
+        # 2000 - 3000 km/s
+    
+        ras = np.array(ra3) + ra_shift
+        decs = np.array(dec3)
+        colors = np.array(v3)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = xlabels
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}3.pdf'.format(saveDirectory),format='pdf')
+
+    ##########################################################################################
+        # 3000 - 4000 km/s
+    
+        ras = np.array(ra4) + ra_shift
+        decs = np.array(dec4)
+        colors = np.array(v4)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = xlabels
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}4.pdf'.format(saveDirectory),format='pdf')
+
+    ##########################################################################################
+        # 4000 - 5000 km/s
+    
+        ras = np.array(ra5) + ra_shift
+        decs = np.array(dec5)
+        colors = np.array(v5)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = xlabels
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}5.pdf'.format(saveDirectory),format='pdf')
+
+
+
+    ##########################################################################################
+        # 5000 - 6000 km/s
+    
+        ras = np.array(ra6) + ra_shift
+        decs = np.array(dec6)
+        colors = np.array(v6)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = xlabels
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}6.pdf'.format(saveDirectory),format='pdf')
+
+    ##########################################################################################
+        # 6000 - 7000 km/s
+    
+        ras = np.array(ra7) +ra_shift
+        decs = np.array(dec7)
+        colors = np.array(v7)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = xlabels
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}7.pdf'.format(saveDirectory),format='pdf')
+    
+    
+    
+    ##########################################################################################
+        # 7000 - 8000 km/s
+    
+        ras = np.array(ra8) +ra_shift
+        decs = np.array(dec8)
+        colors = np.array(v8)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = xlabels
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}8.pdf'.format(saveDirectory),format='pdf')
+    
+    
+    ##########################################################################################
+        # 8000 - 9000 km/s
+    
+        ras = np.array(ra9) + ra_shift
+        decs = np.array(dec9)
+        colors = np.array(v9)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = xlabels
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}9.pdf'.format(saveDirectory),format='pdf')
+
+    ##########################################################################################
+        # 9000 - 10000 km/s
+    
+        ras = np.array(ra10) + ra_shift
+        decs = np.array(dec10)
+        colors = np.array(v10)
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+
+        plot1 = plt.scatter(ra_rad, dec_rad,marker='o',c=colors,vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = xlabels
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}10.pdf'.format(saveDirectory),format='pdf')
+
+    ##########################################################################################
+
+    ##########################################################################################
+        # Full table
+        import astropy.coordinates as coord
+    
+        ras = np.array(all_ras) + ra_shift
+        decs = np.array(all_decs)
+        colors = np.array(all_vhels)
+        
+#         colors = np.array([5000, 9000])
+#         size_galaxy = 20
+    
+        print
+        print 'len(ras) : ',len(ras)
+        print 'len(colors) : ',len(colors)
+        print 'colors[:10] : ', colors[:10]
+        print
+    
+        vmaxVal = max(colors)
+        vminVal = min(colors)
+
+        norm = matplotlib.colors.Normalize(vmin = vminVal, vmax = vmaxVal)
+        m = matplotlib.cm.ScalarMappable(norm=norm, cmap=colmap)
+    
+        # Transform the data into a SkyCoord object.
+        c = SkyCoord(ra=ras*u.degree, dec=decs*u.degree, frame='icrs')
+
+
+        # Matplotlib needs the coordinates in radians, so we have to convert them.
+        # Furtermore matplotlib needs the RA coordinate in the range between -pi
+        # and pi, not 0 and 2pi.
+        ra_rad = c.ra.radian
+        dec_rad = c.dec.radian
+        ra_rad[ra_rad > np.pi] -= 2. * np.pi
+        
+#         ras = np.array([0, 10]) + 2.
+#         decs = np.array([10, 20])
+#         
+#         ra = coord.Angle(ras*u.degree)
+#         ra = ra.wrap_at(180*u.degree)
+#         dec = coord.Angle(decs*u.degree)
+        
+
+        # Now plot the data in Aitoff projection with a grid.
+        fig = plt.figure(figsize=(12,6))
+        ax = lab.subplot(111,projection="aitoff")
+        # lab.subplot(111)
+        
+        
+#         plot1 = ax.scatter(ra.radian, dec.radian, marker='o', c=colors, vmin=vminVal,\
+#         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+        
+        
+        plot1 = plt.scatter(ra_rad, dec_rad, marker='o', c=colors, vmin=vminVal,\
+        vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
+    
+        cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
+        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+    
+        xlab = xlabels
+        ax.set_xticklabels(xlab, weight=530)
+        ax.grid(color='k', linestyle='solid', linewidth=0.5)
+        tight_layout()
+    
+    #     plt.show()
+        plt.savefig('{0}all_sky.pdf'.format(saveDirectory),format='pdf')
 
 ##########################################################################################
     
