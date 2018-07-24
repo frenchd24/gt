@@ -129,12 +129,38 @@ def make_histogram_lstar_split(d1,vlo,vhi,saveDirectory,save):
 #     vcorr = d1['vcorr']
 
     phot = d1['Bmag']
+#     BLstar = d1['Lstar']
     BLstar = d1['Lstar']
+
     ra = d1['RAdeg']
     dec = d1['DEdeg']
     dist = d1['bestDist']
 #     vcorr = d1['vcorr']
-    vcorr = d1['Vhel']
+    vhel = d1['Vhel']
+    flag = d1['flag']
+    name = d1['Name']
+    
+    MajDiam = d1['majorAxis']
+    bestDist = d1['bestDist']
+    
+#     BLstar = []
+#     for m, d, n in zip(MajDiam, bestDist, name):
+#         if m >0 and d>0:
+#             M = -4.696 * math.log10(float(m)) - 12.963
+#            
+#             mstar = -19.57
+#             lstar = lstarValue(mstar, M)
+#             BLstar.append(lstar)
+#            
+#             if n == 'IC0210':
+#                 print '---- IC0210 ----'
+#                 print 'MajDiam = ',m
+#                 print 'M = ',M
+#                 print 'lstar = ',lstar
+#                 print
+#                 print
+#         else:
+#             BLstar.append(0)
 
     
     # breakdown of velocity splits
@@ -168,11 +194,11 @@ def make_histogram_lstar_split(d1,vlo,vhi,saveDirectory,save):
     cutRA = []
     cutDec = []
     cutDist = []
-    cutVcorr = []
+    cutVhel = []
     
-    for p,b,r,d,dis,v in zip(phot,BLstar,ra,dec,dist,vcorr):
+    for p, b, r, d, dis, v, f, n in zip(phot, BLstar, ra, dec, dist, vhel, flag, name):
         if float(v) >= vlo_1 and float(v) < vhi_1:
-            if p > 0:
+            if p > 0 and b !=0:
                 logLstar = log10(float(b))
                 if not isNumber(logLstar):
                     print 'logLstar, Lstar: ',logLstar,', ',b
@@ -182,7 +208,10 @@ def make_histogram_lstar_split(d1,vlo,vhi,saveDirectory,save):
                 cutRA.append(float(r))
                 cutDec.append(float(d))
                 cutDist.append(float(dis))
-                cutVcorr.append(float(v))
+                cutVhel.append(float(v))
+                
+                if logLstar < -3.9:
+                    print '{0} - Log(Lstar) = {1}, Lstar = {2}, B = {3}, {4}'.format(n, logLstar, b, p, v)
             
 #     print 'cutBLstar: ',cutBLstar
     print
@@ -227,27 +256,27 @@ def make_histogram_lstar_split(d1,vlo,vhi,saveDirectory,save):
     
     # draw and annotate Lstar = 1 line
     axvline(x=log10(1),linewidth=1, color=lcolor,linestyle=lstyle,alpha=lalpha)
-    l1 = r'$\rm L_*=1.0$'
+    l1 = r'$\rm L^*=1.0$'
     annotate(s=l1,xy=(log10(1)+xAn,maxHeight*0.96),size=lsize)
     
     # draw Lstar = 0.5 line
     axvline(x=log10(0.5),linewidth=1, color=lcolor,linestyle=lstyle,alpha=lalpha)
-    l_5 = r'$\rm L_*=0.5$'
+    l_5 = r'$\rm L^*=0.5$'
     annotate(s=l_5,xy=(log10(0.5)+xAn+xAn/1.3,maxHeight*0.85),size=lsize)
   
     # draw Lstar = 0.1 line
     axvline(x=log10(0.1),linewidth=1, color=lcolor,linestyle=lstyle,alpha=lalpha)
-    l_1 = r'$\rm L_*=0.1$'
+    l_1 = r'$\rm L^*=0.1$'
     annotate(s=l_1,xy=(log10(0.1)+xAn,maxHeight*0.96),size=lsize)
     
     # draw Lstar = 0.05 line
     axvline(x=log10(0.05),linewidth=1, color=lcolor,linestyle=lstyle,alpha=lalpha)
-    l_05 = r'$\rm L_*=0.05$'
+    l_05 = r'$\rm L^*=0.05$'
     annotate(s=l_05,xy=(log10(0.05)+xAn+xAn/1.3,maxHeight*0.85),size=lsize)
     
     # draw Lstar = 0.01 line
     axvline(x=log10(0.01),linewidth=1, color=lcolor,linestyle=lstyle,alpha=lalpha)
-    l_01 = r'$\rm L_*=0.01$'
+    l_01 = r'$\rm L^*=0.01$'
     annotate(s=l_01,xy=(log10(0.01)+xAn,maxHeight*0.96),size=lsize)
     
     # format the axes
@@ -291,18 +320,18 @@ def make_histogram_lstar_split(d1,vlo,vhi,saveDirectory,save):
     cutRA2 = []
     cutDec2 = []
     cutDist2 = []
-    cutVcorr2 = []
+    cutVhel2 = []
     
-    for p,b,r,d,dis,v in zip(phot,BLstar,ra,dec,dist,vcorr):
+    for p, b, r, d, dis, v, f in zip(phot, BLstar, ra, dec, dist, vhel, flag):
         if float(v) >= vlo_2 and float(v) < vhi_2:
 #             print 'v: ',v
-            if p > 0:
+            if p > 0 and b !=0:
                 cutPhot2.append(float(p))
                 cutBLstar2.append(log10(float(b)))
                 cutRA2.append(float(r))
                 cutDec2.append(float(d))
                 cutDist2.append(float(dis))
-                cutVcorr2.append(float(v))
+                cutVhel2.append(float(v))
             
 #     print 'cutBLstar: ',cutBLstar2
     print
@@ -390,6 +419,7 @@ def make_histogram_lstar_split(d1,vlo,vhi,saveDirectory,save):
     ax2.yaxis.set_minor_locator(minorLocator)
 #     plt.setp(ax2.get_yticklabels(), visible=False)
     plt.setp(ax2.get_yticklabels(), visible=True)
+    ax2.set_yticks([0,1000,2000])
 
 
     ax2.set_ylim([0,3000])
@@ -409,18 +439,18 @@ def make_histogram_lstar_split(d1,vlo,vhi,saveDirectory,save):
     cutRA3 = []
     cutDec3 = []
     cutDist3 = []
-    cutVcorr3 = []
+    cutVhel3 = []
     
-    for p,b,r,d,dis,v in zip(phot,BLstar,ra,dec,dist,vcorr):
+    for p, b, r, d, dis, v, f in zip(phot, BLstar, ra, dec, dist, vhel, flag):
         if float(v) >= vlo_3 and float(v) < vhi_3:
 #             print 'v: ',v
-            if p > 0:
+            if p > 0 and b !=0:
                 cutPhot3.append(float(p))
                 cutBLstar3.append(log10(float(b)))
                 cutRA3.append(float(r))
                 cutDec3.append(float(d))
                 cutDist3.append(float(dis))
-                cutVcorr3.append(float(v))
+                cutVhel3.append(float(v))
             
 #     print 'cutBLstar: ',cutBLstar3
     print
@@ -440,7 +470,7 @@ def make_histogram_lstar_split(d1,vlo,vhi,saveDirectory,save):
 #     ylim(0,maxHeight)
     
 #     ylabel(r'$\rm Number$')
-    xlabel(r'$\rm log_{10} (L/L_*)$')
+    xlabel(r'$\rm log_{10} (L/L^*)$')
 #     ax.annotate(label3,xy=(log10(1.2),maxHeight*0.7))
 #     title(label3)
 
@@ -505,6 +535,7 @@ def make_histogram_lstar_split(d1,vlo,vhi,saveDirectory,save):
     ax3.yaxis.set_major_locator(majorLocator)
     ax3.yaxis.set_major_formatter(majorFormatter)
     ax3.yaxis.set_minor_locator(minorLocator)
+    ax3.set_yticks([0,1000,2000,3000])
 
     ax3.set_ylim([0,4000])
     ax3.set_xlim([-4,2])
@@ -526,18 +557,18 @@ def make_histogram_lstar_split(d1,vlo,vhi,saveDirectory,save):
     cutRA4 = []
     cutDec4 = []
     cutDist4 = []
-    cutVcorr4 = []
+    cutVhel4 = []
     
-    for p,b,r,d,dis,v in zip(phot,BLstar,ra,dec,dist,vcorr):
+    for p, b, r, d, dis, v, f in zip(phot, BLstar, ra, dec, dist, vhel, flag):
         if float(v) >= vlo_4 and float(v) <= vhi_4:
 #             print 'v: ',v
-            if p > 0:
+            if p > 0 and b !=0:
                 cutPhot4.append(float(p))
                 cutBLstar4.append(log10(float(b)))
                 cutRA4.append(float(r))
                 cutDec4.append(float(d))
                 cutDist4.append(float(dis))
-                cutVcorr4.append(float(v))
+                cutVhel4.append(float(v))
             
 #     print 'cutBLstar: ',cutBLstar4
     print
@@ -557,7 +588,7 @@ def make_histogram_lstar_split(d1,vlo,vhi,saveDirectory,save):
 #     ylim(0,maxHeight)
     
 #     ylabel(r'$\rm Number$')
-    xlabel(r'$\rm log_{10} (L/L_*)$')
+    xlabel(r'$\rm log_{10} (L/L^*)$')
 #     ax.annotate(label4,xy=(log10(1.2),maxHeight*0.7))
 #     title(label4)
 
@@ -639,7 +670,7 @@ def make_histogram_lstar_split(d1,vlo,vhi,saveDirectory,save):
 
 
     if save:
-        savefig('{0}Lstar_histogram_4bins_final_{1}-{2}_v3_vert_filteredAll.pdf'.format(saveDirectory,vlo_1,vhi_4),format='pdf',bbox_inches='tight')
+        savefig('{0}Lstar_histogram_4bins_final_{1}-{2}_v3_vert_flag0.pdf'.format(saveDirectory, vlo_1, vhi_4),format='pdf',bbox_inches='tight')
     else:
         show()
        
@@ -688,7 +719,7 @@ def main():
 #         photFilename = '/Users/frenchd/Research/GT_update2/pickleGT_filtered.p'
         photFilename = '/Users/frenchd/Research/GT_update2/pickleGT_filteredAll.p'
         galaxyFilename = '/Users/frenchd/Research/gt/FinalGalaxyTable13_filtered.csv'
-        saveDirectory = '/Users/frenchd/Research/GT_update2/galaxyTable_paper/gt_figures/'
+        saveDirectory = '/Users/frenchd/Research/GT_update2/galaxyTable_paper/figures/'
     else:
         print 'Could not determine username. Exiting.'
         sys.exit()

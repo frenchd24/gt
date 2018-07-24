@@ -87,6 +87,9 @@ def main():
     LstarL = []
     bestDistL = []
     vcorrL = []
+    flagL = []
+    Lstar_minL = []
+    Lstar_maxL = []
     
     for l in reader:
         majorAxis = l['MajDiam']
@@ -107,9 +110,11 @@ def main():
         bestDist = l['bestDist']
         vcorr = l['vcorr']
         flag = int(l['flag'])
+        Lstar_min = float(l['Lstar_min'])
+        Lstar_max = float(l['Lstar_max'])
         
 #         if flag !=1:
-        if flag ==0:
+        if flag == 0:
 
             # use Lstar_sdss if needed
             lstar = -99.99
@@ -133,6 +138,11 @@ def main():
             if b > 0 and lstar < 0:
                 print 'Name: ',Name, ' : ',b,', ',lstar
                 print
+                
+            if Lstar_max < 0:
+                Lstar_max = 0
+            if Lstar_min < 0:
+                Lstar_min = 0
 
             majorAxisL.append(float(majorAxis))
             incL.append(int(inc))
@@ -149,6 +159,9 @@ def main():
             LstarL.append(float(lstar))
             bestDistL.append(float(bestDist))
             vcorrL.append(int(vcorr))
+            flagL.append(flag)
+            Lstar_minL.append(Lstar_min)
+            Lstar_maxL.append(Lstar_max)
         
     
     print 'len Lstar: ',len(LstarL)
@@ -168,6 +181,9 @@ def main():
     gtDict['Lstar'] = LstarL
     gtDict['bestDist'] = bestDistL
     gtDict['vcorr'] = vcorrL
+    gtDict['flag'] = flagL
+    gtDict['Lstar_max'] = Lstar_maxL
+    gtDict['Lstar_min'] = Lstar_minL
     
     pickle.dump(gtDict,pickleFile)
     pickleFile.close()

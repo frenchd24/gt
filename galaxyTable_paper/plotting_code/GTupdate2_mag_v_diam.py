@@ -67,6 +67,10 @@ def calculate_absoluteMag(m,dm,d,dd,e):
     return M, dM
 
 
+def WS2009_fit(D):
+    # best fit from Wakker and Savage 2009
+    M = -5.78 * np.log10(D) - 12
+    return M
 
 # def median_low(l):
 #     # returns the closest element in a list to the median, rounding down
@@ -196,6 +200,9 @@ def main():
 ##########################################################################################
 ##########################################################################################    
 
+    color_blue = '#436bad'      # french blue
+    color_red = '#ec2d01'     # tomato red
+
     hubbleC = 71.0
     
     vcorrs = []
@@ -307,10 +314,10 @@ def main():
     
     x2 = np.linspace(0.1,200,500)
     
-    plt.plot(x2, magvdiam(x2, *popt), 'r-',color='blue',alpha = 0.8)
-# ,label=r'$\rm M = {0}, b={1}'.format(a,b)
-    plt.legend()
-
+    plt.plot(x2, magvdiam(x2, *popt), 'r-', color=color_blue, alpha = 0.99)
+    
+    plt.plot(x2, WS2009_fit(x2), ls = 'dashed', color=color_red, alpha = 0.99)
+    
     # x-axis
 #     ax.xaxis.set_major_locator(plt.LogLocator(base=10.0, numticks=20))
 #     majors = [0, 1, 2, 5, 10, 20, 50, 100]
@@ -341,16 +348,19 @@ def main():
     import matplotlib.patches as mpatches
     import matplotlib.lines as mlines
 
-    blue_line = mlines.Line2D([], [], color='blue', alpha = 0.8,
-    markersize=10, label=r'$\rm M = {0} ~ Log_{{10}}(D) {1}$'.format(a,b))
+    blue_line = mlines.Line2D([], [], color=color_blue, alpha = 0.99,
+    markersize=6, label=r'$\rm M = {0} ~ Log_{{10}}(D) {1}$'.format(a,b))
+    
+    red_line = mlines.Line2D([], [], color=color_red, alpha = 0.99,
+    markersize=6, label=r'$\rm Wakker~\&~Savage~2009~Fit: M = {0} ~ Log_{{10}}(D) {1}$'.format(-5.78,-12))
                               
-    plt.legend(handles=[blue_line],loc='upper left')
+    plt.legend(handles=[blue_line, red_line],loc='upper left', borderpad=0.8, fontsize=12, fancybox=True)
 
-
+    plt.ylim(-10, -24)
     plt.tight_layout()
     
     saveDirectory = '/Users/frenchd/Research/GT_update2/galaxyTable_paper/figures/'
-    plt.savefig('{0}mag_v_diam_fit.pdf'.format(saveDirectory),format='pdf')
+    plt.savefig('{0}mag_v_diam_fit2.pdf'.format(saveDirectory),format='pdf')
 
 
 ##########################################################################################

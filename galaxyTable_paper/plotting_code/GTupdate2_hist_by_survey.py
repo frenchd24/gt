@@ -220,16 +220,21 @@ def main():
     six_df_vhel = []
     rc3_vhel = []
     other_vhel = []
+    
+    other_dict = {}
         
     # do the work
     count = 0
-    for l,n in zip(reader,names_reader):
+    for l, n in zip(reader, names_reader):
         count +=1
-        
-        altNames = str(n['altNames'])
-        
+
         Name = l['Name']
         NEDname = l['NEDname']
+        altNames = n['altNames']
+
+        altNames = str(altNames)
+        
+
         vcorr = eval(l['vcorr'])
         RID_mean = eval(l['RID_mean'])
         RID_median = eval(l['RID_median'])
@@ -270,6 +275,15 @@ def main():
 
             if not found:
                 other_vhel.append(vhel)
+                
+                if vhel > 2500 and vhel <3100:
+                    name_source = Name[:5]
+                    if other_dict.has_key(name_source):
+                        other_count = other_dict[name_source]
+                        other_count +=1
+                        other_dict[name_source] = other_count
+                    else:
+                        other_dict[name_source] = 1
         
 
         # update the counter
@@ -277,6 +291,27 @@ def main():
         sys.stdout.write('Percent complete: {0}\r'.format(percentComplete))
         sys.stdout.flush()
             
+##########################################################################################
+    # print out some numbers
+    
+    print 'Number of 2MAS galaxies: ',len(two_mass_vhel)
+    print
+    print 'Number of SDSS galaxies: ',len(sdss_vhel)
+    print
+    print 'Number of 2dF galaxies: ',len(two_df_vhel)
+    print
+    print 'Number of 6dF galaxies: ',len(six_df_vhel)
+    print
+    print 'Number of RC3 galaxies: ',len(rc3_vhel)
+    print
+    print 'Others: ',
+    for i in other_dict:
+        print '{0} : {1}'.format(i, other_dict[i])
+    
+    print
+    print
+
+
 ##########################################################################################
 
     
