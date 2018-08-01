@@ -52,6 +52,31 @@ from astropy.io import fits
 # from vo.table import parse
 # import vo.tree
 
+
+from matplotlib import rc
+# rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
+# ## for Palatino and other serif fonts use:
+# #rc('font',**{'family':'serif','serif':['Palatino']})
+# rc('text', usetex=True)
+
+fontScale = 14
+rc('text', usetex=True)
+rc('font', size=14, family='serif', weight='normal')
+rc('xtick.major',size=8,width=0.6)
+rc('xtick.minor',size=5,width=0.6)
+rc('ytick.major',size=8,width=0.6)
+rc('ytick.minor',size=5,width=0.6)
+rc('xtick',labelsize = fontScale)
+rc('ytick',labelsize = fontScale)
+rc('axes',labelsize = fontScale)
+rc('xtick', labelsize = fontScale)
+rc('ytick',labelsize = fontScale)
+# rc('font', weight = 450)
+# rc('axes',labelweight = 'bold')
+rc('axes',linewidth = 1)
+
+
+
 ###########################################################################
 
 def median_low(l):
@@ -95,6 +120,7 @@ def main():
         print 'Exiting.'
         sys.exit()
         
+    figure_format = 'pdf'
     
     # plot all sky map in 10 velocity bins centered on 0h RA
     plot_all_sky = False
@@ -334,12 +360,12 @@ def main():
 ##########################################################################################
 
     alpha_galaxy = 0.6
-    size_galaxy = 2
+    size_galaxy = 1.3
 
     # plot it
 #     colmap = cm.RdBu_r
 #     colmap = cm.cool
-    colmap = cm.plasma
+    colmap = cm.plasma_r
 
     colors = np.array(all_vhels)
     
@@ -380,15 +406,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{{-1}}]$')
     
         xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}1.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}1.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
 
     ##########################################################################################
         # 1000 - 2000 km/s
@@ -416,15 +442,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=4, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{{-1}}]$')
     
         xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}2.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}2.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
     
     ##########################################################################################
         # 2000 - 3000 km/s
@@ -452,15 +478,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{{-1}}]$')
     
         xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}3.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}3.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
 
     ##########################################################################################
         # 3000 - 4000 km/s
@@ -488,15 +514,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{{-1}}]$')
     
         xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}4.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}4.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
 
     ##########################################################################################
         # 4000 - 5000 km/s
@@ -524,16 +550,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{{-1}}]$')
     
         xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}5.pdf'.format(saveDirectory),format='pdf')
-
+        plt.savefig('{0}5.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
 
 
     ##########################################################################################
@@ -562,15 +587,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{{-1}}]$')
     
         xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}6.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}6.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
 
     ##########################################################################################
         # 6000 - 7000 km/s
@@ -598,16 +623,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{{-1}}]$')
     
         xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}7.pdf'.format(saveDirectory),format='pdf')
-    
+        plt.savefig('{0}7.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
     
     
     ##########################################################################################
@@ -636,15 +660,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{{-1}}]$')
     
         xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}8.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}8.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
     
     
     ##########################################################################################
@@ -673,15 +697,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{{-1}}]$')
     
         xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}9.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}9.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
 
     ##########################################################################################
         # 9000 - 10000 km/s
@@ -709,15 +733,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{{-1}}]$')
     
         xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}10.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}10.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
 
     ##########################################################################################
 
@@ -760,26 +784,28 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{{-1}}]$')
     
         xlab = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}all_sky.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}all_sky.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
          
         
 ##########################################################################################
 ##########################################################################################
 ##########################################################################################
 
-    ra_shift = -180.0
+    # these one for 6h centered
+#     ra_shift = -90.0
 #     xlabels = ['20h','22h','0h','2h','4h','6h','8h','10h','14h','16h','18h']
 
+    # these for 12h centered
+    ra_shift = -180.0
     xlabels = ['2h','4h','6h','8h','10h','12h','14h','16h','18h','20h','22h']
-#     xlabels = ['14h','16h','18h','20h','22h','0h','2h','4h','6h','8h','10h']
 
     if plot_all_sky_12h:
 
@@ -812,15 +838,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{-1}]$')
     
         xlab = xlabels
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}1.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}1.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
 
     ##########################################################################################
         # 1000 - 2000 km/s
@@ -848,15 +874,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=4, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{-1}]$')
     
         xlab = xlabels
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}2.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}2.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
     
     ##########################################################################################
         # 2000 - 3000 km/s
@@ -884,15 +910,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{-1}]$')
     
         xlab = xlabels
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}3.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}3.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
 
     ##########################################################################################
         # 3000 - 4000 km/s
@@ -920,15 +946,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{-1}]$')
     
         xlab = xlabels
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}4.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}4.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
 
     ##########################################################################################
         # 4000 - 5000 km/s
@@ -956,15 +982,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{-1}]$')
     
         xlab = xlabels
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}5.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}5.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
 
 
 
@@ -994,15 +1020,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{-1}]$')
     
         xlab = xlabels
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}6.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}6.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
 
     ##########################################################################################
         # 6000 - 7000 km/s
@@ -1030,17 +1056,16 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{-1}]$')
     
         xlab = xlabels
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}7.pdf'.format(saveDirectory),format='pdf')
-    
-    
+        plt.savefig('{0}7.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
+
     
     ##########################################################################################
         # 7000 - 8000 km/s
@@ -1068,15 +1093,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{-1}]$')
     
         xlab = xlabels
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}8.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}8.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
     
     
     ##########################################################################################
@@ -1105,15 +1130,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{-1}]$')
     
         xlab = xlabels
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}9.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}9.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
 
     ##########################################################################################
         # 9000 - 10000 km/s
@@ -1141,15 +1166,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{-1}]$')
     
         xlab = xlabels
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}10.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}10.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
 
     ##########################################################################################
 
@@ -1209,15 +1234,15 @@ def main():
         vmax=vmaxVal, lw=0, cmap=colmap, s=size_galaxy, alpha=alpha_galaxy)
     
         cbar = plt.colorbar(plot1,format=r'$\rm %d$',cmap=colmap,orientation='vertical',fraction=0.024, pad=0.03)
-        cbar.set_label(r'$\rm Heliocentric Velocity ~[km ~s^{-1}]$')
+        cbar.set_label(r'$\rm Heliocentric~Velocity ~[km ~s^{{-1}}]$')
     
         xlab = xlabels
-        ax.set_xticklabels(xlab, weight=530)
+        ax.set_xticklabels(xlab, weight=545)
         ax.grid(color='k', linestyle='solid', linewidth=0.5)
         tight_layout()
     
     #     plt.show()
-        plt.savefig('{0}all_sky.pdf'.format(saveDirectory),format='pdf')
+        plt.savefig('{0}all_sky.{1}'.format(saveDirectory, figure_format),format=figure_format, bbox_inches='tight')
 
 ##########################################################################################
     
