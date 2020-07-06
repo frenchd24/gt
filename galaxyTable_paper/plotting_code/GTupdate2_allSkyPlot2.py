@@ -109,7 +109,7 @@ def main():
 
     if user == 'frenchd':        
         inFilename = '/Users/frenchd/Research/gt/FinalGalaxyTable13_filtered.csv'
-        saveDirectory = '/Users/frenchd/Research/GT_update2/galaxyTable_paper/figures/all_sky_12h/'
+        saveDirectory = '/Users/frenchd/Research/GT_update2/galaxyTable_paper/figures/all_sky_6h_reverse/'
 
     elif user =='David':
         pass
@@ -127,6 +127,9 @@ def main():
     
     # plot all sky map in 10 velocity bins centered on 12h RA
     plot_all_sky_12h = True
+    
+    # if true, plots RA increasing to the left
+    reverse_ra = True
         
     # open the files
         # open the files
@@ -801,11 +804,31 @@ def main():
 
     # these one for 6h centered
 #     ra_shift = -90.0
-#     xlabels = ['20h','22h','0h','2h','4h','6h','8h','10h','14h','16h','18h']
+#     xlabels = ['20h','22h','0h','2h','4h','6h','8h','10h','12h','14h','16h']
+
+
+    # these one for 6h centered, increasing to the left
+    ra_shift = -90.0
+    xlabels = ['16h','14h','12h','10h','8h','6h','4h','2h','0h','22h','20h']
+
+
+    # these one for 9h centered, increasing to the left
+#     ra_shift = -135.0
+#     xlabels = ['16h','14h','12h','10h','8h','6h','4h','2h','0h','22h','20h']
+#     xlabels = ['19h','17h','15h','13h','11h','9h','7h','5h','3h','1h','23h']
+
 
     # these for 12h centered
-    ra_shift = -180.0
-    xlabels = ['2h','4h','6h','8h','10h','12h','14h','16h','18h','20h','22h']
+#     ra_shift = -180.0
+#     xlabels = ['2h','4h','6h','8h','10h','12h','14h','16h','18h','20h','22h']
+    
+    # these for 12h centered, increasing to the left
+#     ra_shift = -180.0
+#     xlabels = ['22h','20h','18h','16h','14h','12h','10h','8h','6h','4h','2h']
+
+    # 0h centered, increasing to the left
+#     ra_shift = 0
+#     xlabels = ['10h','8h','6h','4h','2h','0h','22h','20h','18h','16h','14h']
 
     if plot_all_sky_12h:
 
@@ -828,6 +851,9 @@ def main():
         ra_rad = c.ra.radian
         dec_rad = c.dec.radian
         ra_rad[ra_rad > np.pi] -= 2. * np.pi
+        
+        if reverse_ra:
+            ra_rad = -ra_rad
 
         # Now plot the data in Aitoff projection with a grid.
         fig = plt.figure(figsize=(12,6))
@@ -865,6 +891,10 @@ def main():
         dec_rad = c.dec.radian
         ra_rad[ra_rad > np.pi] -= 2. * np.pi
 
+        if reverse_ra:
+            ra_rad = -ra_rad
+
+
         # Now plot the data in Aitoff projection with a grid.
         fig = plt.figure(figsize=(12,6))
         ax = lab.subplot(111,projection="aitoff")
@@ -900,6 +930,9 @@ def main():
         ra_rad = c.ra.radian
         dec_rad = c.dec.radian
         ra_rad[ra_rad > np.pi] -= 2. * np.pi
+        
+        if reverse_ra:
+            ra_rad = -ra_rad
 
         # Now plot the data in Aitoff projection with a grid.
         fig = plt.figure(figsize=(12,6))
@@ -936,6 +969,10 @@ def main():
         ra_rad = c.ra.radian
         dec_rad = c.dec.radian
         ra_rad[ra_rad > np.pi] -= 2. * np.pi
+        
+        if reverse_ra:
+            ra_rad = -ra_rad
+            
 
         # Now plot the data in Aitoff projection with a grid.
         fig = plt.figure(figsize=(12,6))
@@ -972,6 +1009,9 @@ def main():
         ra_rad = c.ra.radian
         dec_rad = c.dec.radian
         ra_rad[ra_rad > np.pi] -= 2. * np.pi
+        
+        if reverse_ra:
+            ra_rad = -ra_rad
 
         # Now plot the data in Aitoff projection with a grid.
         fig = plt.figure(figsize=(12,6))
@@ -1010,6 +1050,9 @@ def main():
         ra_rad = c.ra.radian
         dec_rad = c.dec.radian
         ra_rad[ra_rad > np.pi] -= 2. * np.pi
+        
+        if reverse_ra:
+            ra_rad = -ra_rad
 
         # Now plot the data in Aitoff projection with a grid.
         fig = plt.figure(figsize=(12,6))
@@ -1046,6 +1089,9 @@ def main():
         ra_rad = c.ra.radian
         dec_rad = c.dec.radian
         ra_rad[ra_rad > np.pi] -= 2. * np.pi
+        
+        if reverse_ra:
+            ra_rad = -ra_rad
 
         # Now plot the data in Aitoff projection with a grid.
         fig = plt.figure(figsize=(12,6))
@@ -1083,6 +1129,9 @@ def main():
         ra_rad = c.ra.radian
         dec_rad = c.dec.radian
         ra_rad[ra_rad > np.pi] -= 2. * np.pi
+        
+        if reverse_ra:
+            ra_rad = -ra_rad
 
         # Now plot the data in Aitoff projection with a grid.
         fig = plt.figure(figsize=(12,6))
@@ -1120,6 +1169,9 @@ def main():
         ra_rad = c.ra.radian
         dec_rad = c.dec.radian
         ra_rad[ra_rad > np.pi] -= 2. * np.pi
+        
+        if reverse_ra:
+            ra_rad = -ra_rad
 
         # Now plot the data in Aitoff projection with a grid.
         fig = plt.figure(figsize=(12,6))
@@ -1156,6 +1208,9 @@ def main():
         ra_rad = c.ra.radian
         dec_rad = c.dec.radian
         ra_rad[ra_rad > np.pi] -= 2. * np.pi
+        
+        if reverse_ra:
+            ra_rad = -ra_rad
 
         # Now plot the data in Aitoff projection with a grid.
         fig = plt.figure(figsize=(12,6))
@@ -1211,6 +1266,9 @@ def main():
         ra_rad = c.ra.radian
         dec_rad = c.dec.radian
         ra_rad[ra_rad > np.pi] -= 2. * np.pi
+        
+        if reverse_ra:
+            ra_rad = -ra_rad
         
 #         ras = np.array([0, 10]) + 2.
 #         decs = np.array([10, 20])

@@ -1,0 +1,65 @@
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\fixspacing
+
+\bibitem[{{Corwin} {et~al.}(1994){Corwin}, {Buta}, \& {de Vaucouleurs}}]{RC3}
+{Corwin}, Jr., H.~G., {Buta}, R.~J., \& {de Vaucouleurs}, G. 1994, \aj, 108,
+  2128
+
+\bibitem[{{Geller} \& {Huchra}(1983)}]{geller1983}
+{Geller}, M.~J., \& {Huchra}, J.~P. 1983, \apjs, 52, 61
+
+\bibitem[{{Heidmann} {et~al.}(1972{\natexlab{a}}){Heidmann}, {Heidmann}, \& {de
+  Vaucouleurs}}]{heidmann1972}
+{Heidmann}, J., {Heidmann}, N., \& {de Vaucouleurs}, G. 1972{\natexlab{a}},
+  \memras, 75, 85
+
+\bibitem[{{Heidmann} {et~al.}(1972{\natexlab{b}}){Heidmann}, {Heidmann}, \& {de
+  Vaucouleurs}}]{heidmann1972c}
+---. 1972{\natexlab{b}}, \memras, 75, 121
+
+\bibitem[{{Huchra} \& {Geller}(1982)}]{huchra1982}
+{Huchra}, J.~P., \& {Geller}, M.~J. 1982, \apj, 257, 423
+
+\bibitem[{Iglewicz \& Hoaglin(1993)}]{iglewicz1993}
+Iglewicz, B., \& Hoaglin, D. 1993, How to Detect and Handle Outliers, ASQC
+  basic references in quality control (ASQC Quality Press)
+
+\bibitem[{{Jarrett} {et~al.}(2003){Jarrett}, {Chester}, {Cutri}, {Schneider},
+  \& {Huchra}}]{jarrett2003}
+{Jarrett}, T.~H., {Chester}, T., {Cutri}, R., {Schneider}, S.~E., \& {Huchra},
+  J.~P. 2003, \aj, 125, 525
+
+\bibitem[{{Jester} {et~al.}(2005){Jester}, {Schneider}, {Richards}, {Green},
+  {Schmidt}, {Hall}, {Strauss}, {Vanden Berk}, {Stoughton}, {Gunn},
+  {Brinkmann}, {Kent}, {Smith}, {Tucker}, \& {Yanny}}]{jester2005}
+{Jester}, S., {Schneider}, D.~P., {Richards}, G.~T., {et~al.} 2005, \aj, 130,
+  873
+
+\bibitem[{{Marzke} {et~al.}(1994){Marzke}, {Huchra}, \& {Geller}}]{marzke1994}
+{Marzke}, R.~O., {Huchra}, J.~P., \& {Geller}, M.~J. 1994, \apj, 428, 43
+
+\bibitem[{{Schlafly} \& {Finkbeiner}(2011)}]{schlafly2011}
+{Schlafly}, E.~F., \& {Finkbeiner}, D.~P. 2011, \apj, 737, 103
+
+\bibitem[{{Stocke} {et~al.}(2013){Stocke}, {Keeney}, {Danforth}, {Shull},
+  {Froning}, {Green}, {Penton}, \& {Savage}}]{stocke2013}
+{Stocke}, J.~T., {Keeney}, B.~A., {Danforth}, C.~W., {et~al.} 2013, \apj, 763,
+  148
+
+\bibitem[{{Tully}(2015)}]{tully2015}
+{Tully}, R.~B. 2015, \aj, 149, 171
+
+\bibitem[{{Tully} {et~al.}(2009){Tully}, {Rizzi}, {Shaya}, {Courtois},
+  {Makarov}, \& {Jacobs}}]{tully2009}
+{Tully}, R.~B., {Rizzi}, L., {Shaya}, E.~J., {et~al.} 2009, \aj, 138, 323
+
+\bibitem[{{Wakker} {et~al.}(2015){Wakker}, {Hernandez}, {French}, {Kim},
+  {Oppenheimer}, \& {Savage}}]{wakker2015}
+{Wakker}, B.~P., {Hernandez}, A.~K., {French}, D.~M., {et~al.} 2015, \apj, 814,
+  40
+
+\bibitem[{{Wakker} \& {Savage}(2009)}]{wakker2009}
+{Wakker}, B.~P., \& {Savage}, B.~D. 2009, \apjs, 182, 378
+
+\end{thebibliography}
